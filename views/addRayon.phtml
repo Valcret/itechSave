@@ -1,0 +1,14 @@
+<form method="post" action="submitAddRayon">
+    <fieldset>
+        <legend>Nouveau Rayon</legend>
+        
+        <select name='boutique'>
+                <?php foreach($boutiques as $boutique): ?>
+                    <option value="<?= $boutique['id_boutique'] ?>"><?= $boutique['nom'] ?></option>
+                <?php endforeach; ?>
+        </select>
+            
+    <input type="text" name="rayon" placeholder="nom du rayon"/>
+    <button type="submit">Ajouter</button>
+      </fieldset>
+</form>

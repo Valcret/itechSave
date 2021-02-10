@@ -1,0 +1,42 @@
+# all
+[template]
+  css/template.css
+  js/
+  template.php
+
+
+# Groupe 1 
+[Header]
+  header.inc.php
+  css/header.css
+
+[nav]
+  nav.inc.php
+  css/nav.css
+  
+  
+  
+
+# Groupe 2  => Michel, Amaury,Flavia
+main
+
+[Présentation produit] 
+  presentation.inc.php
+  css/presentation.css
+
+[Description caractéristiques tech]
+  description.inc.php
+  css/description.css
+
+
+
+
+
+# Groupe 3 
+[footer]
+  footer.inc.php
+  css/footer.css
+
+ [modals box]
+  modals.inc.php
+  css/modals.css

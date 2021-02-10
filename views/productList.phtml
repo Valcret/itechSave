@@ -1,0 +1,32 @@
+<form>
+    <input type="search" name="search"/>
+   <button type='submit'>Rechercher</button>
+</form>
+
+<button type="submit"><a href="addProduct"><i class="far fa-plus-square"></i> Ajouter un produit</a></button> 
+
+<table>
+    <thead>
+        <th>Statut</th>
+        <th>Boutique</th>
+        <th>Rayon</th>
+        <th>Produit</th>
+        <th> </th>
+        <th> </th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+    <?php foreach($productLists as $produit):?>
+    <tr scope="row">
+      <td scope="col"><?= $this -> colorStatut($produit['statut'])?></td>
+      <td scope="col"><?=$produit['boutique']?></td>
+      <td scope="col"><?=$produit['rayon']?></td>
+      <td scope="col"><?=$produit['marque']?> <?=$produit['nom']?></td>
+      
+      <td><?= $this -> setButton($produit['statut']); ?></td> 
+      <td><button class="btn btn-outline-secondary small"><i class="fas fa-pen"></i> Modifier</button></td>
+      <td><button class="btn btn-outline-secondary small"><i class="fas fa-tags"></i> Caractéristiques</button></td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>

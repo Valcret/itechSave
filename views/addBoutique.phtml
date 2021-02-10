@@ -1,0 +1,12 @@
+<form method="post" action="<?= (!isset($_GET['id']))?'submitAddBoutique':'submitUpdateBoutique-'.$_GET['id'] ?>">
+    <fieldset>
+        <legend><?= (!isset($_GET['id']))?'Nouvelle boutique':'Modifier une boutique' ?></legend>
+        
+    <input type="text" name="boutique" value="<?= (!isset($_GET['id']))?'':$boutique['nom'] ?>"/>
+    <button type="submit"><?= (!isset($_GET['id']))?'Ajouter':'Modifier' ?></button>
+      </fieldset>
+</form>
+
+
+
+

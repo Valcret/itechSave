@@ -1,0 +1,13 @@
+# activation de la réécriture d'urls
+Options +FollowSymlinks
+RewriteEngine On
+
+
+RewriteRule  ^([a-zA-Z]+)-([0-9]+)$  index.php?page=$1&id=$2 [L]
+RewriteRule  ^([a-zA-Z]+)$  index.php?page=$1 [L]
+
+
+
+
+
+#(-[a-z]*)

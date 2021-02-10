@@ -1,0 +1,25 @@
+<?
+$pgname = 'Rayons';
+?>
+<form>
+    <input type="search" name="search"/>
+   <button type='submit'>Rechercher</button>
+</form>
+
+<button type="submit"><a href="addRayon">+ Ajouter un rayon</a></button> 
+
+<table>
+    <thead>
+        <th>Rayon</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+    <?php foreach($rayons as $rayon):?>
+    <tr scope="row">
+        <td scope="col"><?= $rayon["nom"]?></td>
+        <td><button>Modifier</button> 
+        <button>Supprimer</button></td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>

@@ -1,0 +1,23 @@
+<form>
+    <input type="search" name="search"/>
+   <button type='submit'>Rechercher</button>
+</form>
+
+<button type="submit"><a href="addBoutique">+ Ajouter une boutique</a></button> 
+
+<table>
+    <thead>
+        <th>Boutique</th>
+        <th></th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+    <?php foreach($boutiques as $boutique):?>
+    <tr scope="row">
+        <td scope="col"><?= $boutique["nom"]?></td>
+        <td><button><a href="updateBoutique-<?=$boutique["id_boutique"]?>">Modifier</a></button></td>
+        <td><button><a id="suppr" href="deleteBoutique">Supprimer</a></button></td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>

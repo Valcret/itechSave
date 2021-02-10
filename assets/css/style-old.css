@@ -1,0 +1,111 @@
+/* *****************************************************************
+               TOOLS
+***************************************************************** */
+
+* {
+    box-sizing: border-box;
+    /* On spécifie que la largeur (width) de chaque boîte comprend le padding et la bordure (par défaut, c'est seulement la largeur du contenu) */
+}
+
+html {
+    font-size: 62.5%;
+    /* 1rem = 10px (la formule est 10/16*100) la taille par défaut étant 16px */
+}
+
+
+/* *****************************************************************
+               ROOT
+***************************************************************** */
+
+:root {
+
+    -- gris: #eee;
+    -- fondmain: #fff;
+    -- titres: #333;
+    -- texte: #555;
+    -- smShadow: 0 0 1px rgba(0, 0, 0, 0.2);
+    -- mdShadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    -- lgShadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    -- xlShadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    -- smBorder: 1px solid #eee;
+    -- mdBorder: 1px solid #ddd;
+    -- lgBorder: 2px solid #ccc;
+
+}
+
+/* *****************************************************************
+               GENERALITES
+***************************************************************** */
+
+body {
+    margin: auto;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    font-family: "Open Sans";
+}
+
+
+/*image*/
+
+img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+/* *****************************************************************
+               Titres
+***************************************************************** */
+
+h1,
+h2,
+h3 {
+    color: var(-- titres);
+    font-family: "Raleway";
+}
+
+h1 {
+    font-size: 3.6rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+    /* marge pointillée*/
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+
+/* *****************************************************************
+               VERSION TABLETTE
+***************************************************************** */
+
+@media screen and (min-width:480px) {}
+
+
+
+/* *****************************************************************
+***************************************************************** */
+
+@media screen and (min-width: 960px) {
+
+
+    /* Images dans descriptif*/
+    /*=> le float ne fonctionne*/
+    .main-left {
+        float: left;
+        width: 50%;
+    }
+
+    .main-right {
+        float: right;
+        width: 50%;
+    }
+    .clear {
+        clear: both;
+
+    }
+
+}
