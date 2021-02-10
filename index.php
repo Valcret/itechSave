@@ -11,6 +11,7 @@ spl_autoload_register(function ($class)
     {
     require 'model/'.$class.'.php';
     }
+    
 });
 
 
