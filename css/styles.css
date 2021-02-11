@@ -93,7 +93,8 @@ section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Open Sans' Arial, Helvetica, "Segoe UI", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system,
+  BlinkMacSystemFont, 'Open Sans', Arial, Helvetica, "Segoe UI", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.5;
@@ -118,6 +119,7 @@ hr {
 
 /* ************************************************ Text -  Headings - Links  ***************************************** */
 
+/*
 h1,
 h2,
 h3,
@@ -126,8 +128,9 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: 'Ralaway', Arial, Helvetica, sans-serif;
+  font-family: 'Relaway', Arial, Helvetica, sans-serif;
 }
+*/
 
 h1,
 h2,
@@ -10232,9 +10235,11 @@ body {
   z-index: 1038;
 }
 
+/*
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
   padding-top: 56px;
 }
+*/
 
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
   overflow-y: auto;
@@ -10263,6 +10268,7 @@ body {
 .img-error {
   max-width: 20rem;
 }
+
 /*
 .nav .nav-link .sb-nav-link-icon,
 .sb-sidenav-menu .nav-link .sb-nav-link-icon {
@@ -10321,6 +10327,7 @@ body {
   position: relative;
 }
 */
+
 /*
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
   font-size: 0.9rem;

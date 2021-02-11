@@ -17,6 +17,8 @@ class RayonModel extends ModelManager
        echo "Nouveau rayon bien ajouté";
     }
     
-    //suppr
+    //update
+    
+
     
 }

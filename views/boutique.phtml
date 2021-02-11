@@ -16,8 +16,14 @@
     <tr scope="row">
         <td scope="col"><?= $boutique["nom"]?></td>
         <td><button><a href="updateBoutique-<?=$boutique["id_boutique"]?>">Modifier</a></button></td>
-        <td><button><a id="suppr" href="deleteBoutique">Supprimer</a></button></td>
+        <td><button><a href="deleteBoutique-<?=$boutique["id_boutique"]?>" class="suppr">Supprimer</a></button></td>
+        
+         <td><button><a href="#" data-id="<?=$boutique["id_boutique"]?>" class="supprBis">Supprimer Bis</a></button></td>
+         
     </tr>
+    
     <?php endforeach; ?>
 </tbody>
 </table>
+
+

@@ -11,7 +11,6 @@ spl_autoload_register(function ($class)
     {
     require 'model/'.$class.'.php';
     }
-    
 });
 
 
@@ -78,16 +77,15 @@ else
         break;
         
         case 'submitUpdateBoutique':
-       $controller = new UpdateBoutiqueController();
-      $controller -> upDataBoutique();
+        $controller = new UpdateBoutiqueController();
+        $controller -> upDataBoutique();
         break;
         
-         case 'deleteBoutique':
-        //$controller = new UpdateBoutiqueController();
-       // $controller -> display();
+        case 'deleteBoutique':
+        $controller = new BoutiqueController();
+        $controller -> deleteB();
         break;
     
-        
         case 'rayon':
         $controller = new RayonController();
         $controller -> display();
@@ -103,7 +101,17 @@ else
         $controller -> getRayon();
         break;
         
-         case 'logout':
+       // case 'submitUpdateRayon':
+        //$controller = new ();
+        //$controller -> upDataBoutique();
+       // break;
+        
+       // case 'deleteRayon':
+        //$controller = new BoutiqueController();
+        //$controller -> deleteB();
+       // break;
+        
+        case 'logout':
         $controller = new AdminController();
         $controller -> logout();
         break;

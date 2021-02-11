@@ -1,4 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Raleway:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Raleway:wght@300;400&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+}
 
 
 .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
@@ -10,11 +21,16 @@
     margin-top: 2rem;
 }
 
+.sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
+    padding-top: 25px;
+}
+
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--gray);
     padding: 1.75rem 1rem 0.75rem;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--gray-dark);
 }
 
 .sb-sidenav .sb-sidenav-menu .nav .nav-link {
@@ -28,12 +44,10 @@
 .sb-sidenav-light .sb-sidenav-menu .nav-link {
     font-family: 'Open Sans', sans-serif;
     font-size: 0.8rem;
-    margin-bottom: 5px;
     display: flex;
 }
 
 a.nav-link {
-    margin-top: 5px;
     margin-left: 10px;
     padding: 0.5rem 0.5rem;
     line-height: 1;
@@ -44,7 +58,6 @@ a.nav-link {
 
 a.nav-link:hover,
 a.nav-link:active {
-
     align-items: center;
     color: #fff;
     background-color: var(--primary);

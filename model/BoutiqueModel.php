@@ -37,7 +37,12 @@ class BoutiqueModel extends ModelManager
     }
     
   
-    //suppr
+    //suppr une boutique
+     public function deleteBoutique($id)
+    {
+        $req = "DELETE FROM boutique WHERE id_boutique = ?";
+        $this -> query($req,[$id]);
+    }
     
 }
 

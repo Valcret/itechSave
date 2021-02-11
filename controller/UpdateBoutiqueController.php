@@ -16,7 +16,7 @@ class UpdateBoutiqueController extends ManagerController
      $boutique = $model->findBoutique($this->ID);
      
      $template = "addBoutique.phtml";
-        include "views/dashboard.phtml";
+     include "views/dashboard.phtml";
     }
     
         public function upDataBoutique()
@@ -30,7 +30,6 @@ class UpdateBoutiqueController extends ManagerController
     
 }
 
-// supp 
 
 
 

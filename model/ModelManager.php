@@ -51,9 +51,10 @@ abstract class ModelManager
     {
 
     return $this -> bdd ->lastInsertId();
-    
-    
+
     }  
+    
+    
     
     
 }
