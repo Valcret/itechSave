@@ -29,8 +29,3 @@ class UpdateBoutiqueController extends ManagerController
     }
     
 }
-
-
-
-
-

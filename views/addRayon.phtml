@@ -1,14 +1,17 @@
-<form method="post" action="submitAddRayon">
+<form method="post" action="<?= (!isset($_GET['id']))?'submitAddRayon':'submitUpdateRayon-'.$_GET['id'] ?>">
     <fieldset>
-        <legend>Nouveau Rayon</legend>
-        
+        <legend><?= (!isset($_GET['id']))?'Nouveau Rayon':'Modifier un rayon' ?>
+        </legend>
         <select name='boutique'>
                 <?php foreach($boutiques as $boutique): ?>
                     <option value="<?= $boutique['id_boutique'] ?>"><?= $boutique['nom'] ?></option>
                 <?php endforeach; ?>
         </select>
-            
-    <input type="text" name="rayon" placeholder="nom du rayon"/>
-    <button type="submit">Ajouter</button>
-      </fieldset>
+        <input type="text" name="rayon" value="<?= (!isset($_GET['id']))?'':$rayon['nom'] ?>"/>
+        <button type="submit"><?= (!isset($_GET['id']))?'Ajouter':'Modifier' ?>
+        </button>
+    </fieldset>
 </form>
+
+
+        

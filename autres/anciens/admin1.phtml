@@ -1,0 +1,27 @@
+<div>
+    <h1>Login</h1>
+    <form method="post" action="login">
+        <p>
+          <input type="email" placeholder="Email" name="email" required>  
+        </p>
+         <p>
+            <input type="password" placeholder="Enter Password" name="psw" required> 
+         </p>
+        <button type="submit">Login</button>
+        <p>
+            <input type="checkbox" checked="unchecked" name="remember"> 
+        </p>
+        <p>
+          <span class="psw"><a href="#"> Forgot password?</a></span>
+        </p>
+    </form>
+    
+    <?php if(isset($error)):?>
+       <strong> <?= $error?> </strong>
+    <?php endif; ?>
+</div>
+
+
+
+
+ 
