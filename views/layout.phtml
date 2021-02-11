@@ -10,18 +10,16 @@
 
 <body>
     <header>
-       <?php include $templateNav; ?>
+        <!--
+        <img src="../../assets/img/corp/logo.svg">
+        <div class="headtitle"><? =$dataquivabien ?></div>
+        <div class="userlogged"><!-- avatar etc du user actif --></div>
       
     </header>
     <aside></aside>
-    <main class="container">
-      <div class="breadcrumbs">
-        <a href="#"><img src="images/icons/home.svg" alt="home icon">Accueil</a><strong>&gt;</strong><a href="#"><img src="images/icons/database.svg" alt="dabase icon">$nom_boutique</a><strong>&gt;</strong><a href="#"><img src="images/icons/computer.svg" alt="computer icon">$nom_rayon</a><strong>&gt;</strong>
-      </div>
-    
-       <!-- article -->
-
-         <?php include $template; ?>
+    <main>
+         <!-- si page d'accueil -->
+      <?php include $template; ?>
     </main>
     
     <footer></footer>

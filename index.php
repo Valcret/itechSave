@@ -17,8 +17,9 @@ spl_autoload_register(function ($class)
 // voir s'il y a une page demandé par l'utilisateur
 if(!isset($_GET['page']))
 {
-    $controller = new ArticleController();
-    $controller -> display();
+    // par défaut
+    //$controller = new AccueilController();
+   // $controller -> display();
 }
 
 else
