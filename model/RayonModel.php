@@ -10,35 +10,15 @@ class RayonModel extends ModelManager
     }
     
     //insertion d'une nouvelle rayon
-    public function insertRayon($nom,$id_boutique)
+    public function insertRayon($nom,$boutique)
     {
        $req = "INSERT INTO rayon (nom,id_boutique) VALUES(?,?)";
-       $this-> query($req,[$nom,$id_boutique]);
+       $this-> query($req,[$nom,$boutique]);
        echo "Nouveau rayon bien ajouté";
     }
     
-        //afficher le nom du rayon
-     public function findRayon($params)
-    {
-    //$post=requete rayon model
-      $req = "SELECT id_rayon, nom FROM rayon WHERE id_rayon= ?";
-     return $this -> queryFetch($req,[$params]);
-    }
+    //update
     
+
     
-    //update rayon
-    public function updateRayon($nom,$id_rayon)
-    {
-        $req = "UPDATE rayon SET nom=? WHERE id_rayon=?";
-        $this-> query($req,[$nom,$id_rayon]) ;
-        echo " update rayon ok!";
-    }
-    
-    // delete rayon
-    
-    public  function deleteRayon($id)
-    {
-        $req = "DELETE FROM rayon WHERE id_rayon =?";
-        $this -> query($req,[$id]);
-    }
 }

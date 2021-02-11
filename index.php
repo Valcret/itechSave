@@ -10,6 +10,7 @@ spl_autoload_register(function ($class)
     if(stristr($class, 'model'))
     {
     require 'model/'.$class.'.php';
+    
     }
 });
 
@@ -100,20 +101,15 @@ else
         $controller -> getRayon();
         break;
         
-        case 'updateRayon':
-        $controller = new UpdateRayonController();
-        $controller -> display();
-        break;
+       // case 'submitUpdateRayon':
+        //$controller = new ();
+        //$controller -> upDataBoutique();
+       // break;
         
-        case 'submitUpdateRayon':
-        $controller = new UpdateRayonController ();
-        $controller -> upDataRayon();
-        break;
-        
-        case 'deleteRayon':
-        $controller = new RayonController();
-        $controller -> deleteR();
-        break;
+       // case 'deleteRayon':
+        //$controller = new BoutiqueController();
+        //$controller -> deleteB();
+       // break;
         
         case 'logout':
         $controller = new AdminController();
@@ -121,3 +117,7 @@ else
         break;
     }
 }
+
+
+//index.php?page=admin
+//index.php?page=deconnexion
