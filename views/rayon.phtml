@@ -9,18 +9,18 @@
 
 <table class="col-4" >
   <thead>
-    <th class="col-3">Rayon</th>
-    <th class="col-1"></th>
-    <th class="col-1">Actions</th>
-    <th class="col-1"></th>
-  </thead>
+    <th class="col-2">Rayon</th>
+    
+    <th colspan="3">Actions</th>
+   </thead>
+  
   <tbody class="table-striped">
     <?php foreach($rayons as $rayon):?>
     <tr scope="row">
       <td scope="col"><?= $rayon["nom"]?></td>
-      <td><button class="btn btn-outline-secondary btn-sm btn-block"><a href="updateRayon-<?=$rayon["id_rayon"]?>">Modifier</a></button></td>
-      <td><button class="btn btn-outline-danger btn-sm btn-block"><a href="deleteRayon-<?=$rayon["id_rayon"]?>" class="suppr">Supprimer</a></button></td>
-      <td><button class="btn btn-outline-info btn-sm btn-block"><a href="#" data-id="<?=$rayon["id_rayon"]?>" class="supprBis">Suppr. Bis</a></button></td>  
+      <td class="col-1"><button class="btn btn-outline-secondary btn-sm btn-block"><a href="updateRayon-<?=$rayon["id_rayon"]?>">Modifier</a></button></td>
+      <td class="col-1"><button class="btn btn-outline-danger btn-sm btn-block"><a href="deleteRayon-<?=$rayon["id_rayon"]?>" class="suppr">Supprimer</a></button></td>
+      <td class="col-1"><button class="btn btn-outline-info btn-sm btn-block"><a href="#" data-id="<?=$rayon["id_rayon"]?>" class="supprBis">Suppr. Bis</a></button></td>  
         
     </tr>
     <?php endforeach; ?>

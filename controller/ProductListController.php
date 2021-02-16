@@ -40,13 +40,13 @@ class ProductListController  extends ManagerController
        switch($statut)
        {
             case "En boutique":
-                $button="<button data-id='$id' data-statut='Retiré' class='btn btn-outline-danger statutP'><i class='fas fa-pen'></i> Retirer</button>";
+                $button="<button data-id='$id' data-statut='Retiré' class='btn btn-outline-danger btn-sm btn-block statutp'><i class='fas fa-pen'></i> Retirer</button>";
                 break;
             case "Retiré":
-                $button="<button data-id='$id' data-statut='En attente' class='btn btn-outline-success statutP'><i class='fas fa-pen'></i> Remettre</button>";
+                $button="<button data-id='$id' data-statut='En attente' class='btn btn-outline-secondary btn-sm btn-block statutp'><i class='fas fa-pen'></i>Mettre en attente</button>";
                 break;
             case "En attente":
-                $button="<button data-id='$id' data-statut='En boutique' class='btn btn-outline-success statutP'><i class='fas fa-check-square'></i> Mettre en boutique</button>";
+                $button="<button data-id='$id' data-statut='En boutique' class='btn btn-outline-success btn-sm btn-block statutp'><i class='fas fa-check-square'></i> Mettre en boutique</button>";
                 break;
         }
         return $button;
@@ -60,8 +60,8 @@ class ProductListController  extends ManagerController
            
       $productStatut = new ProductListModel();
       $productStatuts = $productStatut -> updateStatutProduit($statut,$id);
-      header('location:productList');
-       }
+        header("Refresh:0; url=productList");
+}
 
    }
 

@@ -1,4 +1,4 @@
-<div class="col-6 tools">
+<div class="col-4 tools">
 <form>
     <input class="search" type="search" name="search"/>
     <button class="btn btn-outline-info btn-sm" type='submit'>Rechercher</button>
@@ -8,25 +8,23 @@
 </div>
 <table>
     <thead>
-        <th>Statut</th>
-        <th>Boutique</th>
-        <th>Rayon</th>
         <th>Produit</th>
-        <th> </th>
-        <th> </th>
-        <th>Actions</th>
+        <th>Rayon</th>
+        <th>Boutique</th>
+        <th class="col-1 statutp">Statut</th>
+        <th colspan="3">Actions</th>
+	
     </thead>
     <tbody class="table-striped">
     <?php foreach($productLists as $produit):?>
     <tr scope="row">
-      <td scope="col"><?= $this -> colorStatut($produit['statut'])?></td>
-      <td scope="col"><?=$produit['boutique']?></td>
-      <td scope="col"><?=$produit['rayon']?></td>
-      <td scope="col"><?=$produit['marque']?> <?=$produit['nom']?></td>
-      
-      <td><?= $this -> setButton($produit['statut'],$produit['id']); ?></td> 
-      <td><button class="btn btn-outline-secondary btn-sm btn-block"><i class="fas fa-pen"></i> Modifier</button></td>
-      <td><button class="btn btn-outline-info btn-sm btn-block"><i class="fas fa-tags"></i> Caractéristiques</button></td>
+        <td class="col-3" scope="col"><?=$produit['marque']?> <?=$produit['nom']?></td>
+       <td class="col-2" scope="col"><?=$produit['rayon']?></td>
+      <td class="col-1" scope="col"><?=$produit['boutique']?></td>
+      <td class="col-1 statutNom" scope="col"><?= $this -> colorStatut($produit['statut'])?></td>
+      <td class="col-2"><?= $this -> setButton($produit['statut'],$produit['id']); ?></td> 
+      <td class="col-1"><button class="btn btn-outline-secondary btn-sm btn-block"><i class="fas fa-pen"></i> Modifier</button></td>
+      <td class="col-2"><button class="btn btn-outline-info btn-sm btn-block"><i class="fas fa-tags"></i> Caractéristiques</button></td>
     </tr>
     <?php endforeach; ?>
 </tbody>

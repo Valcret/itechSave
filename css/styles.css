@@ -47,10 +47,6 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-/*.green {  color: var(--green);}
-.red {  color: var(--red);}
-.grey {  color: var(--gray);}*/
-
 *,
 *::before,
 *::after {
@@ -80,19 +76,6 @@ html {
 */
 
 /* ******* */
-
-article,
-aside,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section {
-  display: block;
-}
 
 body {
   margin: 0;
@@ -204,7 +187,9 @@ a:hover {
   text-decoration: underline;
 }
 
-.statutp {}
+.statutp {
+  text-align: center;
+}
 
 .add a,
 .add a:hover {

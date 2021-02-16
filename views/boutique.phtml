@@ -9,18 +9,17 @@
 
 <table class="col-4" >
     <thead>
-        <th class="col-2">
-        <th class="col-1"></th>
-        <th class="col-1">Actions</th>
-		<th class="col-1"></th>
-    </thead>
-    <tbody class="table-striped">
+        <th class="col-2">Boutique</th>
+     <th colspan="3">Actions</th>
+   </thead>
+  
+    <tbody>
     <?php foreach($boutiques as $boutique):?>
     <tr scope="row">
         <td scope="col"><?= $boutique["nom"]?></td>
-        <td><button class="btn btn-outline-secondary btn-sm btn-block"><a href="updateBoutique-<?=$boutique["id_boutique"]?>">Modifier</a></button></td>
-        <td><button class="btn btn-outline-danger btn-sm btn-block"><a id="suppr" href="deleteBoutique">Supprimer</a></button></td>
-		<td><button class="btn btn-outline-info btn-sm btn-block"><a href="#" data-id="<?=$boutique["id_boutique"]?>" class="supprBis">Suppr. Bis</a></button></td>
+        <td class="col-1"><button class="btn btn-outline-secondary btn-sm btn-block"><a href="updateBoutique-<?=$boutique["id_boutique"]?>">Modifier</a></button></td>
+        <td class="col-1"><button class="btn btn-outline-danger btn-sm btn-block"><a id="suppr" href="deleteBoutique">Supprimer</a></button></td>
+		<td class="col-1"><button class="btn btn-outline-info btn-sm btn-block"><a href="#" data-id="<?=$boutique["id_boutique"]?>" class="supprBis">Suppr. Bis</a></button></td>
     </tr>
     <?php endforeach; ?>
 </tbody>
