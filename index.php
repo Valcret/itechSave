@@ -23,7 +23,7 @@ if(!isset($_GET['page']))
 }
 
 else
-{
+{*/
     switch($_GET['page'])
     {
         case 'admin' :
@@ -116,7 +116,7 @@ else
         $controller -> logout();
         break;
     }
-}
+//}
 
 
 //index.php?page=admin

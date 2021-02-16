@@ -13,7 +13,7 @@ class FrontController
     
     public function displayNav()
     {
-        $boutiques = $this->boutique ->getTableau()
-        $rayons = $this->rayon ->getTableau()
+        $boutiques = $this->boutique ->getTableau();
+        $rayons = $this->rayon ->getTableau();
     }
 }
