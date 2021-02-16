@@ -10,6 +10,7 @@ spl_autoload_register(function ($class)
     if(stristr($class, 'model'))
     {
     require 'model/'.$class.'.php';
+    
     }
 });
 
