@@ -56,6 +56,11 @@ else
         $controller -> getProduct();
         break;
         
+        case 'ProductListController':
+        $controller = new ProductListController();
+        $controller -> updateStatutP();
+        break;
+        
         case 'boutique':
         $controller = new BoutiqueController();
         $controller -> display();

@@ -43,19 +43,14 @@ abstract class ModelManager
         $query = $this -> bdd -> prepare($req);
         //executer la requete
         $query -> execute($params);
-         var_dump($query-> errorInfo());
+  //       var_dump($query-> errorInfo());
     }
     
    
     public function getLastId()
     {
-
     return $this -> bdd ->lastInsertId();
-
     }  
-    
-    
-    
     
 }
 

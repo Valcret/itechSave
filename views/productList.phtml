@@ -1,10 +1,11 @@
+<div class="col-6 tools">
 <form>
-    <input type="search" name="search"/>
-   <button type='submit'>Rechercher</button>
+    <input class="search" type="search" name="search"/>
+    <button class="btn btn-outline-info btn-sm" type='submit'>Rechercher</button>
 </form>
 
-<button type="submit"><a href="addProduct"><i class="far fa-plus-square"></i> Ajouter un produit</a></button> 
-
+<button class="btn btn-primary btn-sm add" type="submit"><a href="addProduct"><i class="far fa-plus-square"></i> Ajouter un produit</a></button> 
+</div>
 <table>
     <thead>
         <th>Statut</th>
@@ -15,7 +16,7 @@
         <th> </th>
         <th>Actions</th>
     </thead>
-    <tbody>
+    <tbody class="table-striped">
     <?php foreach($productLists as $produit):?>
     <tr scope="row">
       <td scope="col"><?= $this -> colorStatut($produit['statut'])?></td>
@@ -23,9 +24,9 @@
       <td scope="col"><?=$produit['rayon']?></td>
       <td scope="col"><?=$produit['marque']?> <?=$produit['nom']?></td>
       
-      <td><?= $this -> setButton($produit['statut']); ?></td> 
-      <td><button class="btn btn-outline-secondary small"><i class="fas fa-pen"></i> Modifier</button></td>
-      <td><button class="btn btn-outline-secondary small"><i class="fas fa-tags"></i> Caractéristiques</button></td>
+      <td><?= $this -> setButton($produit['statut'],$produit['id']); ?></td> 
+      <td><button class="btn btn-outline-secondary btn-sm btn-block"><i class="fas fa-pen"></i> Modifier</button></td>
+      <td><button class="btn btn-outline-info btn-sm btn-block"><i class="fas fa-tags"></i> Caractéristiques</button></td>
     </tr>
     <?php endforeach; ?>
 </tbody>

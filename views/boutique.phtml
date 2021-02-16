@@ -1,29 +1,27 @@
+<div class="col-4 tools">
 <form>
-    <input type="search" name="search"/>
-   <button type='submit'>Rechercher</button>
+    <input class="search" type="search" name="search"/>
+    <button class="btn btn-outline-info btn-sm" type='submit'>Rechercher</button>
 </form>
 
-<button type="submit"><a href="addBoutique">+ Ajouter une boutique</a></button> 
+<button class="btn btn-primary btn-sm add" type="submit"><a href="addBoutique"><i class="fas fa-plus-square"></i> Ajout. boutique</a></button> 
+</div>
 
-<table>
+<table class="col-4" >
     <thead>
-        <th>Boutique</th>
-        <th></th>
-        <th>Actions</th>
+        <th class="col-2">
+        <th class="col-1"></th>
+        <th class="col-1">Actions</th>
+		<th class="col-1"></th>
     </thead>
-    <tbody>
+    <tbody class="table-striped">
     <?php foreach($boutiques as $boutique):?>
     <tr scope="row">
         <td scope="col"><?= $boutique["nom"]?></td>
-        <td><button><a href="updateBoutique-<?=$boutique["id_boutique"]?>">Modifier</a></button></td>
-        <td><button><a href="deleteBoutique-<?=$boutique["id_boutique"]?>" class="suppr">Supprimer</a></button></td>
-        
-         <td><button><a href="#" data-id="<?=$boutique["id_boutique"]?>" class="supprBis">Supprimer Bis</a></button></td>
-         
+        <td><button class="btn btn-outline-secondary btn-sm btn-block"><a href="updateBoutique-<?=$boutique["id_boutique"]?>">Modifier</a></button></td>
+        <td><button class="btn btn-outline-danger btn-sm btn-block"><a id="suppr" href="deleteBoutique">Supprimer</a></button></td>
+		<td><button class="btn btn-outline-info btn-sm btn-block"><a href="#" data-id="<?=$boutique["id_boutique"]?>" class="supprBis">Suppr. Bis</a></button></td>
     </tr>
-    
     <?php endforeach; ?>
 </tbody>
 </table>
-
-

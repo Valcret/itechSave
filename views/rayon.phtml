@@ -1,24 +1,34 @@
+<div class="col-4 tools">
 <form>
-    <input type="search" name="search"/>
-   <button type='submit'>Rechercher</button>
+    <input class="search" type="search" name="search"/><button class="btn btn-outline-info btn-sm" type='submit'>Rechercher</button>
 </form>
+<button class="btn btn-primary btn-sm add" type="submit"><a href="addRayon"><i class="fas fa-plus-square"></i>  Ajout. rayon</a></button> 
+</div>
 
-<button type="submit"><a href="addRayon">+ Ajouter un rayon</a></button> 
+<!--button type="submit"><a href="addRayon">+ Ajouter un rayon</a></button--> 
 
-<table>
-    <thead>
-        <th>Rayon</th>
-        <th>Actions</th>
-    </thead>
-    <tbody>
+<table class="col-4" >
+  <thead>
+    <th class="col-3">Rayon</th>
+    <th class="col-1"></th>
+    <th class="col-1">Actions</th>
+    <th class="col-1"></th>
+  </thead>
+  <tbody class="table-striped">
     <?php foreach($rayons as $rayon):?>
     <tr scope="row">
-        <td scope="col"><?= $rayon["nom"]?></td>
-        <td><button><a href="updateRayon-<?=$rayon["id_rayon"]?>">Modifier</a></button></td>
-        <td><button><a href="deleteRayon-<?=$rayon["id_rayon"]?>" class="suppr">Supprimer</a></button></td>
+      <td scope="col"><?= $rayon["nom"]?></td>
+      <td><button class="btn btn-outline-secondary btn-sm btn-block"><a href="updateRayon-<?=$rayon["id_rayon"]?>">Modifier</a></button></td>
+      <td><button class="btn btn-outline-danger btn-sm btn-block"><a href="deleteRayon-<?=$rayon["id_rayon"]?>" class="suppr">Supprimer</a></button></td>
+      <td><button class="btn btn-outline-info btn-sm btn-block"><a href="#" data-id="<?=$rayon["id_rayon"]?>" class="supprBis">Suppr. Bis</a></button></td>  
         
-         <td><button><a href="#" data-id="<?=$rayon["id_rayon"]?>" class="supprBis">Supprimer Bis</a></button></td>
     </tr>
     <?php endforeach; ?>
 </tbody>
 </table>
+<div class="col-4 tools">
+<form>
+    <input class="search" type="search" name="search"/><button class="btn btn-outline-info btn-sm" type='submit'>Rechercher</button>
+</form>
+<button class="btn btn-primary btn-sm add" type="submit"><a href="addRayon"><i class="fas fa-plus-square"></i>  Ajout. rayon</a></button> 
+</div>

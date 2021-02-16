@@ -35,25 +35,34 @@ class ProductListController  extends ManagerController
        
     
    
-   private function setButton($statut)
+   private function setButton($statut, $id)
    {
        switch($statut)
        {
             case "En boutique":
-                $button="<button class='btn btn-outline-danger '><i class='fas fa-pen'></i> Retirer</button>";
+                $button="<button data-id='$id' data-statut='Retiré' class='btn btn-outline-danger statutP'><i class='fas fa-pen'></i> Retirer</button>";
                 break;
             case "Retiré":
-                $button="<button class='btn btn-outline-success'><i class='fas fa-pen'></i> Remettre</button>";
+                $button="<button data-id='$id' data-statut='En attente' class='btn btn-outline-success statutP'><i class='fas fa-pen'></i> Remettre</button>";
                 break;
             case "En attente":
-                $button="<button class='btn btn-outline-success'><i class='fas fa-check-square'></i> Mettre en boutique</button>";
+                $button="<button data-id='$id' data-statut='En boutique' class='btn btn-outline-success statutP'><i class='fas fa-check-square'></i> Mettre en boutique</button>";
                 break;
         }
         return $button;
    }
        
-       
-       
+       // fonction pour la requête ajax
+       public function updateStatutP(){
+      //var_dump($_GET);
+           $id = $_GET["id"];
+           $statut = $_GET["statut"];
+           
+      $productStatut = new ProductListModel();
+      $productStatuts = $productStatut -> updateStatutProduit($statut,$id);
+      header('location:productList');
+       }
+
    }
 
  
