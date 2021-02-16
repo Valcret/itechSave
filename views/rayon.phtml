@@ -1,6 +1,3 @@
-<?
-$pgname = 'Rayons';
-?>
 <form>
     <input type="search" name="search"/>
    <button type='submit'>Rechercher</button>
@@ -17,8 +14,10 @@ $pgname = 'Rayons';
     <?php foreach($rayons as $rayon):?>
     <tr scope="row">
         <td scope="col"><?= $rayon["nom"]?></td>
-        <td><button>Modifier</button></td>
-        <td><button>Supprimer</button></td>
+        <td><button><a href="updateRayon-<?=$rayon["id_rayon"]?>">Modifier</a></button></td>
+        <td><button><a href="deleteRayon-<?=$rayon["id_rayon"]?>" class="suppr">Supprimer</a></button></td>
+        
+         <td><button><a href="#" data-id="<?=$rayon["id_rayon"]?>" class="supprBis">Supprimer Bis</a></button></td>
     </tr>
     <?php endforeach; ?>
 </tbody>

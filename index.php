@@ -10,7 +10,6 @@ spl_autoload_register(function ($class)
     if(stristr($class, 'model'))
     {
     require 'model/'.$class.'.php';
-    
     }
 });
 
@@ -18,12 +17,13 @@ spl_autoload_register(function ($class)
 // voir s'il y a une page demandé par l'utilisateur
 if(!isset($_GET['page']))
 {
-    $controller = new ArticleController();
-    $controller -> display();
+    // par défaut
+    //$controller = new AccueilController();
+   // $controller -> display();
 }
 
 else
-{*/
+{
     switch($_GET['page'])
     {
         case 'admin' :
@@ -101,23 +101,24 @@ else
         $controller -> getRayon();
         break;
         
-       // case 'submitUpdateRayon':
-        //$controller = new ();
-        //$controller -> upDataBoutique();
-       // break;
+        case 'updateRayon':
+        $controller = new UpdateRayonController();
+        $controller -> display();
+        break;
         
-       // case 'deleteRayon':
-        //$controller = new BoutiqueController();
-        //$controller -> deleteB();
-       // break;
+        case 'submitUpdateRayon':
+        $controller = new UpdateRayonController ();
+        $controller -> upDataRayon();
+        break;
+        
+        case 'deleteRayon':
+        $controller = new RayonController();
+        $controller -> deleteR();
+        break;
         
         case 'logout':
         $controller = new AdminController();
         $controller -> logout();
         break;
     }
-//}
-
-
-//index.php?page=admin
-//index.php?page=deconnexion
+}

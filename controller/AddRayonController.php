@@ -2,12 +2,12 @@
 
 class AddRayonController  extends ManagerController
 {
-    //methode pour charger la page productList
+    //methode pour charger la page addrayon
     public function display()
     {
+        
         $boutique = new BoutiqueModel();
       $boutiques = $boutique  -> getTableau();
-        
         $template = "addRayon.phtml";
         include "views/dashboard.phtml";
     }

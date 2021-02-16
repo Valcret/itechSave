@@ -14,6 +14,9 @@ class UpdateRayonController extends ManagerController
     public function display()
     {
         //affiche id_rayon dans le form
+        $boutique = new BoutiqueModel();
+      $boutiques = $boutique  -> getTableau();
+        
         $model = new RayonModel();
         $rayon = $model->findRayon($this->ID);
         
