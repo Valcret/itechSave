@@ -30,5 +30,13 @@ INNER JOIN boutique ON rayon.id_boutique=boutique.id_boutique";
       $this-> query($req,[$statut,$id_produit]) ;
     }
     
-    
+    //récupération des données fiche produit pour le front
+    public function displayProd($id_produit){
+    $req = "SELECT id_produit,produits.nom AS nom,marque,reference,etiquettes,prix,ecoparticipation,statut,description_principale,titre_1,image_1,description_1,titre_2,image_2,description_2,titre_3,image_3,description_3,produits.id_rayon AS id_rayon,rayon.nom AS rayon,boutique.id_boutique AS id_boutique, boutique.nom AS boutique
+    FROM produits
+    INNER JOIN rayon ON produits.id_rayon = rayon.id_rayon
+    INNER JOIN boutique ON rayon.id_boutique = boutique.id_boutique
+    WHERE id_produit=?";
+   return $this-> queryFetch($req,[$id_produit]);
+}
 }

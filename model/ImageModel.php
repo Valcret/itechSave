@@ -8,4 +8,13 @@ class ImageModel extends ModelManager
         $this ->query($req,[$lastId,$src]);
     }
     
+       public function addPhoto($id_produit)
+    {
+        $req = "SELECT id_produit,src,id_photo,alt
+        FROM photos 
+        WHERE id_produit= ?";
+        return $this -> queryFetchAll($req,[$id_produit]);
+    }
+    
+    
 }

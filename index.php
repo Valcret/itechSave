@@ -17,15 +17,32 @@ spl_autoload_register(function ($class)
 // voir s'il y a une page demandé par l'utilisateur
 if(!isset($_GET['page']))
 {
-    // par défaut
-    //$controller = new AccueilController();
-   // $controller -> display();
+
 }
 
 else
 {
     switch($_GET['page'])
     {
+///////////////////////////////////////FRONT
+
+        /*
+        case 'accueil' :
+        $controller = new AccueilController();
+        $controller -> display();
+        break;
+        */
+        
+        case 'article' :
+        $controller = new ArticleController();
+        $controller -> display();
+        break;
+
+        case 'FrontController':
+        $controller = new FrontController();
+        $controller -> createCookie();
+        break;
+////////////////////////////////////////BACK
         case 'admin' :
         $controller = new AdminController();
         $controller -> display();

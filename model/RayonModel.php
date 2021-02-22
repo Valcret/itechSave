@@ -41,4 +41,13 @@ class RayonModel extends ModelManager
         $req = "DELETE FROM rayon WHERE id_rayon =?";
         $this -> query($req,[$id]);
     }
+    
+    // pour la barre de nav (menu)
+        public  function displayNavRayon()
+    {
+        $req = "SELECT rayon.nom AS rayon,rayon.id_boutique AS idBoutique, id_rayon AS idRayon 
+        FROM rayon";
+        return $this -> queryFetchAll($req);
+    }
+
 }

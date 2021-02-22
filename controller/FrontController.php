@@ -2,18 +2,23 @@
 
 class FrontController
 {
-    protected $boutique;
-    protected $rayon;
-
-    public function __controller()
-    {
-    $this -> boutique = new BoutiqueModel();
-    $this  -> rayon = new RayonModel();
-    }
+    protected $navBoutique;
+    protected $navRayon;
     
-    public function displayNav()
+public function __construct()
+{
+        $this->  setNav();
+}
+    public function setNav()
     {
-        $boutiques = $this->boutique ->getTableau();
-        $rayons = $this->rayon ->getTableau();
+        $boutique = new BoutiqueModel();
+        $rayon = new RayonModel();
+        $this-> navBoutique = $boutique -> displayNavBoutique();
+        $this-> navRayon = $rayon -> displayNavRayon();
+    }
+    public function createCookie()
+    {
+
+            setcookie('test',true,time()+365*24*3600);
     }
 }

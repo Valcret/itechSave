@@ -30,32 +30,32 @@ function changeStatut() {
     // tableau qu'on envoie à php (produtListController)
     let updateStatut = { 'id': this.dataset.id, 'statut': this.dataset.statut };
     console.log(updateStatut);
-    
+
     //requête AJAX pour changer le statut des produits
     $.get('index.php?page=ProductListController', updateStatut);
-    
+
     //afficher sur php changement de bouton et changement status 1ercolonnee 
     let buttonMettreEnB = `<button data-id='${this.dataset.id}' data-statut='En boutique' class='btn btn-outline-success btn-sm btn-block statutp'><i class='fas fa-check-square'></i>Mettre en boutique</button>`;
 
-let buttonRetirer = `<button data-id='${this.dataset.id}' data-statut='Retiré' class='btn btn-outline-danger btn-sm btn-block statutp'><i class='fas fa-pen'></i> Retirer</button>`;
+    let buttonRetirer = `<button data-id='${this.dataset.id}' data-statut='Retiré' class='btn btn-outline-danger btn-sm btn-block statutp'><i class='fas fa-pen'></i> Retirer</button>`;
 
-let buttonMettreAtt = `<button data-id='${this.dataset.id}' data-statut='En attente' class='btn btn-outline-secondary btn-sm btn-block statutp'><i class='fas fa-pen'></i>Mettre en attente</button>`
-    let nameStat = this.parentElement.parentElement.firstElementChild
-    
-    
+    let buttonMettreAtt = `<button data-id='${this.dataset.id}' data-statut='En attente' class='btn btn-outline-secondary btn-sm btn-block statutp'><i class='fas fa-pen'></i>Mettre en attente</button>`
+    let nameStat = this.parentElement.parentElement.querySelector('td:nth-child(4)')
+
+
     if (this.dataset.statut === "En boutique") {
         this.parentElement.innerHTML = buttonRetirer
-        nameStat.innerHTML ="<span class='green'>En boutique</span>"
+        nameStat.innerHTML = "<span class='green'>En boutique</span>"
 
     }
     else if (this.dataset.statut === "Retiré") {
         this.parentElement.innerHTML = buttonMettreAtt
-        nameStat.innerHTML ="<span class='red'>Retiré</span>"
+        nameStat.innerHTML = "<span class='red'>Retiré</span>"
 
     }
     else {
         this.parentElement.innerHTML = buttonMettreEnB
-        nameStat.innerHTML ="<span class='grey'>En attente</span>"
+        nameStat.innerHTML = "<span class='grey'>En attente</span>"
 
 
     }
@@ -67,8 +67,6 @@ let buttonMettreAtt = `<button data-id='${this.dataset.id}' data-statut='En atte
     }
 
 }
-
-
 /*********CODE***********
  ***************************/
 
@@ -88,6 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
     statutButton = document.querySelectorAll('.statutp');
     for (let i = 0; i < statutButton.length; i++) {
         statutButton[i].addEventListener('click', changeStatut);
+}
 
-    }
 })

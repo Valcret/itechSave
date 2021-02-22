@@ -44,6 +44,14 @@ class BoutiqueModel extends ModelManager
         $this -> query($req,[$id]);
     }
     
+    
+        // pour la barre de nav (menu)
+        public  function displayNavBoutique()
+    {
+        $req = "SELECT boutique.nom AS boutique,id_boutique AS idBoutique 
+        FROM boutique";
+        return $this -> queryFetchAll($req);
+    }
 }
 
 
