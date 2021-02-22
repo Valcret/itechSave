@@ -4,6 +4,7 @@ class FrontController
 {
     protected $navBoutique;
     protected $navRayon;
+    protected $navProduit;
     
 public function __construct()
 {
@@ -13,8 +14,12 @@ public function __construct()
     {
         $boutique = new BoutiqueModel();
         $rayon = new RayonModel();
+        $produit = new ProductListModel();
+        
         $this-> navBoutique = $boutique -> displayNavBoutique();
         $this-> navRayon = $rayon -> displayNavRayon();
+        $this-> navProduit = $produit-> getTableau();
+      //  var_dump()
     }
     public function createCookie()
     {

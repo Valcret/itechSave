@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 //spl_autoload_register(); // eviter d'écrire les noms des models et control
 spl_autoload_register(function ($class) 
 {
@@ -42,6 +43,7 @@ else
         $controller = new FrontController();
         $controller -> createCookie();
         break;
+        
 ////////////////////////////////////////BACK
         case 'admin' :
         $controller = new AdminController();
@@ -50,7 +52,7 @@ else
         
         case 'login' :
         $controller = new AdminController();
-        $controller ->  login();
+        $controller -> login();
         break;
         
         case 'dashboard':

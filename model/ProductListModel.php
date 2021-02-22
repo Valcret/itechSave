@@ -5,7 +5,7 @@ class ProductListModel extends ModelManager
     public function getTableau()
     {
     //$post=requete pour page products
-   $req = "SELECT  id_produit AS id,statut,marque,produits.nom AS nom,rayon.nom AS rayon,boutique.nom AS boutique
+   $req = "SELECT  id_produit AS id,statut,marque,produits.nom AS nom,produits.id_rayon AS idRayon,rayon.nom AS rayon,boutique.nom AS boutique
 FROM produits
 INNER JOIN rayon ON produits.id_rayon=rayon.id_rayon
 INNER JOIN boutique ON rayon.id_boutique=boutique.id_boutique";

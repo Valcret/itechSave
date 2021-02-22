@@ -1,6 +1,8 @@
 <?php
 
 class AdminController {
+    
+// login
 
     //methode pour charger la page admin
     public function display()
