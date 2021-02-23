@@ -9,7 +9,7 @@ class AdminController {
     {
       //gestion des templates
       $template = "admin.phtml";
-      include "views/layout.phtml";
+      include "views/layoutback.phtml";
     }
 
       // récuperer les données et vérifier infos
