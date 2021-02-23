@@ -314,7 +314,7 @@ h2 {
     color: #ffffff;
     /*transform: translateY(-100px);*/
     transition: transform 0.75s linear;
-    z-index: 1000;
+    z-index: 2000;
 }
 
 

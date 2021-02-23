@@ -1,320 +1,318 @@
 
-<main class="main container">
-    <nav class="breadcrumb hide-md">
-        <ul>
-            <!-- à finir pour que ce soit interactif -->
-            <li><a href="#"><i class="icon-shop"></i>Accueil</a></li>
-            <li><a href="#"><i class="icon-data"></i><?= $displayed['boutique'] ?></a></li>
-            <li><a href="#"><?= $displayed['rayon'] ?></a></li>
-            <li><?= $displayed['nom'] ?></li>
-        </ul>
-    </nav>
-    <article id="product" class="product">
-        <header>
-            <h1><?= $displayed['marque'] ?> <?= $displayed['nom'] ?></h1>
-            <p id="toc" class="toc">
-                <a href="#presentation">Présentation</a>
-                <a href="#description">Descriptif</a>
-                <a href="#specifications">Caractéristiques techniques</a>
-            </p>
-        </header>
-        <section id="presentation" class="presentation">
-            <h2>Présentation</h2>
-            <p class="keywords">
-                <span>1920 x 1080 pixels</span>
-                <span>7 ms</span>
-                <span>Format large 16/9</span>
-                <span>Dalle IPS</span>
-                <span>HDMI</span>
-                <span>VGA</span>
-                <span>Noir</span>
-            </p>
-            <div class="cols cols--2 gutter">
-                <div id="gallery-1" class="gallery gallery--zoom">
-                    <!--debut carrousel : big image -->
-                    <div id="bigImage">
-                          
+    <main class="main container">
+        <nav class="breadcrumb hide-md">
+            <ul>
+                <!-- à finir pour que ce soit interactif -->
+                <li><a href="#"><i class="icon-shop"></i>Accueil</a></li>
+                <li><a href="#"><i class="icon-data"></i><?= $displayed['boutique'] ?></a></li>
+                <li><a href="#"><?= $displayed['rayon'] ?></a></li>
+                <li><?= $displayed['nom'] ?></li>
+            </ul>
+        </nav>
+        <article id="product" class="product">
+            <header>
+                <h1><?= $displayed['marque'] ?> <?= $displayed['nom'] ?></h1>
+                <p id="toc" class="toc">
+                    <a href="#presentation">Présentation</a>
+                    <a href="#description">Descriptif</a>
+                    <a href="#specifications">Caractéristiques techniques</a>
+                </p>
+            </header>
+            <section id="presentation" class="presentation">
+                <h2>Présentation</h2>
+                <p class="keywords">
+                    <span>1920 x 1080 pixels</span>
+                    <span>7 ms</span>
+                    <span>Format large 16/9</span>
+                    <span>Dalle IPS</span>
+                    <span>HDMI</span>
+                    <span>VGA</span>
+                    <span>Noir</span>
+                </p>
+                <div class="cols cols--2 gutter">
+                    <div id="gallery-1" class="gallery gallery--zoom">
+                        <!--debut carrousel : big image -->
+                        <div id="bigImage"></div>
+                        <ul>
+                            <?php foreach($photos as $photo):?>
+                            <li>
+                                <a href="<?=$photo['src']?>">
+                                    <img class="photos" src="<?=$photo['src']?>" alt="<?=$photo['alt']?> : Vignette du produit">
+                                </a>
+                            </li>
+        <?php endforeach; ?>
+                        </ul>
                     </div>
-                    <ul>
-                        <?php foreach($photos as $photo):?>
-                        <li>
-                            <a href="<?=$photo['src']?>">
-                                <img class="photos" src="<?=$photo['src']?>" alt="<?=$photo['alt']?> : Vignette du produit">
-                            </a>
-                        </li>
-                           
-    <?php endforeach; ?>
-                    </ul>
+                    
+                    <div>
+                        <div class="brand">
+                            <p><img src="images/brand-1/logo-sm.png" alt="Logo marque" class="hide-md">
+                            Marque: <div class="brand"><?= $displayed['marque'] ?></p>
+                        </div>
+                        <div class="cart-card">
+                            <div class="cart-card_price">
+                                <div><?= $displayed['prix'] ?>€</div>
+                                <small>dont éco-participation <?= $displayed['ecoparticipation'] ?>€</small>
+                            </div>
+                            <div class="cart-card_actions">
+                                <button id="add-cart" class="button">Ajouter au panier</button>
+                                <button id="add-wish" class="button button--alt">Ajouter à ma liste d'envie</button>
+                            </div>
+                            <div class="cart-card_guarantee">
+                                Garantie: 2 années vendeur
+                            </div>
+                        </div>
+                        <p><?=$displayed['description_principale']?></p>
+                    </div>
+                </div>
+            </section>
+            <section id="description" class="description clearfix">
+                <h2>Descriptif</h2>
+                <h3><?=$displayed['titre_1']?></h3>
+                <img class="float-right" src="<?=$displayed['image_1']?>" alt="taille de l'écran" class="main-right">
+                <p><?=$displayed['description_1']?></p>
+                <h3><?=$displayed['titre_2']?></h3>
+                <img class="float-left" src="<?=$displayed['image_2']?>" alt="zoom écran" class="main-left">
+                <p><?=$displayed['description_2']?></h3>
+                <h3><?=$displayed['titre_3']?></h3>
+                <img class="float-left" src="<?=$displayed['image_3']?>" alt="zoom écran" class="main-left">
+                <p><?=$displayed['description_3']?></h3>
+            </section>
+            <section id="specifications" class="specifications">
+                <h2>Caractéristiques techniques</h2>
+                <div>
+                    <h3>Affichage</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Taille de l'écran</td>
+                                <td>23.8 pouces</td>
+                            </tr>
+                            <tr>
+                                <td>Format de l'écran</td>
+                                <td>16/9</td>
+                            </tr>
+                            <tr>
+                                <td>Type de Dalle</td>
+                                <td>Dalle IPS</td>
+                            </tr>
+                            <tr>
+                                <td>Technologie LCD</td>
+                                <td>IPS</td>
+                            </tr>
+                            <tr>
+                                <td>Résolution Max</td>
+                                <td>1920 x 1080 pixels</td>
+                            </tr>
+                            <tr>
+                                <td>Dot Pitch</td>
+                                <td>0.2745 mm</td>
+                            </tr>
+                            <tr>
+                                <td>Luminosité</td>
+                                <td>250 cd/m²</td>
+                            </tr>
+                            <tr>
+                                <td>Contraste</td>
+                                <td>20000000 /1</td>
+                            </tr>
+                            <tr>
+                                <td>Temps de réponse</td>
+                                <td>7 ms</td>
+                            </tr>
+                            <tr>
+                                <td>Angle de vision (horizontal)</td>
+                                <td>178 Degré(s)</td>
+                            </tr>
+                            <tr>
+                                <td>Angle de vision (vertical)</td>
+                                <td>178 Degré(s)</td>
+                            </tr>
+                            <tr>
+                                <td>Dalle mate/antireflets</td>
+                                <td>Oui</td>
+                            </tr>
+                            <tr>
+                                <td>NVIDIA G-SYNC</td>
+                                <td>Non</td>
+                            </tr>
+                            <tr>
+                                <td>Adaptive-Sync</td>
+                                <td>Non</td>
+                            </tr>
+                            <tr>
+                                <td>AMD FreeSync</td>
+                                <td>Non</td>
+                            </tr>
+                            <tr>
+                                <td>Flicker-Free</td>
+                                <td>Oui</td>
+                            </tr>
+                            <tr>
+                                <td>Anti-lumière bleue</td>
+                                <td>Oui</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div>
-                    <div class="brand">
-                        <p><img src="images/brand-1/logo-sm.png" alt="Logo marque" class="hide-md">
-                        Marque: <div class="brand"><?= $displayed['marque'] ?></p>
-                    </div>
-                    <div class="cart-card">
-                        <div class="cart-card_price">
-                            <div><?= $displayed['prix'] ?>€</div>
-                            <small>dont éco-participation <?= $displayed['ecoparticipation'] ?>€</small>
-                        </div>
-                        <div class="cart-card_actions">
-                            <button id="add-cart" class="button">Ajouter au panier</button>
-                            <button id="add-wish" class="button button--alt">Ajouter à ma liste d'envie</button>
-                        </div>
-                        <div class="cart-card_guarantee">
-                            Garantie: 2 années vendeur
-                        </div>
-                    </div>
-                    <p><?=$displayed['description_principale']?></p>
+                    <h3>Ecran</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Type d'écran</td>
+                                <td>LED</td>
+                            </tr>
+                            <tr>
+                                <td>Ecran large</td>
+                                <td>Oui</td>
+                            </tr>
+                            <tr>
+                                <td>Ecran incurvé</td>
+                                <td>Non</td>
+                            </tr>
+                            <tr>
+                                <td>Borderless</td>
+                                <td>Oui</td>
+                            </tr>
+                            <tr>
+                                <td>Compatible 3D</td>
+                                <td>Non</td>
+                            </tr>
+                            <tr>
+                                <td>Ecran tactile</td>
+                                <td>Non</td>
+                            </tr>
+                            <tr>
+                                <td>Fréquence verticale mini</td>
+                                <td>60 Hz</td>
+                            </tr>
+                            <tr>
+                                <td>Type d'activités</td>
+                                <td>Bureautique</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-        </section>
-        <section id="description" class="description clearfix">
-            <h2>Descriptif</h2>
-            <h3><?=$displayed['titre_1']?></h3>
-            <img class="float-right" src="<?=$displayed['image_1']?>" alt="taille de l'écran" class="main-right">
-            <p><?=$displayed['description_1']?></p>
-            <h3><?=$displayed['titre_2']?></h3>
-            <img class="float-left" src="<?=$displayed['image_2']?>" alt="zoom écran" class="main-left">
-            <p><?=$displayed['description_2']?></h3>
-            <h3><?=$displayed['titre_3']?></h3>
-            <img class="float-left" src="<?=$displayed['image_3']?>" alt="zoom écran" class="main-left">
-            <p><?=$displayed['description_3']?></h3>
-        </section>
-        <section id="specifications" class="specifications">
-            <h2>Caractéristiques techniques</h2>
-            <div>
-                <h3>Affichage</h3>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Taille de l'écran</td>
-                            <td>23.8 pouces</td>
-                        </tr>
-                        <tr>
-                            <td>Format de l'écran</td>
-                            <td>16/9</td>
-                        </tr>
-                        <tr>
-                            <td>Type de Dalle</td>
-                            <td>Dalle IPS</td>
-                        </tr>
-                        <tr>
-                            <td>Technologie LCD</td>
-                            <td>IPS</td>
-                        </tr>
-                        <tr>
-                            <td>Résolution Max</td>
-                            <td>1920 x 1080 pixels</td>
-                        </tr>
-                        <tr>
-                            <td>Dot Pitch</td>
-                            <td>0.2745 mm</td>
-                        </tr>
-                        <tr>
-                            <td>Luminosité</td>
-                            <td>250 cd/m²</td>
-                        </tr>
-                        <tr>
-                            <td>Contraste</td>
-                            <td>20000000 /1</td>
-                        </tr>
-                        <tr>
-                            <td>Temps de réponse</td>
-                            <td>7 ms</td>
-                        </tr>
-                        <tr>
-                            <td>Angle de vision (horizontal)</td>
-                            <td>178 Degré(s)</td>
-                        </tr>
-                        <tr>
-                            <td>Angle de vision (vertical)</td>
-                            <td>178 Degré(s)</td>
-                        </tr>
-                        <tr>
-                            <td>Dalle mate/antireflets</td>
-                            <td>Oui</td>
-                        </tr>
-                        <tr>
-                            <td>NVIDIA G-SYNC</td>
-                            <td>Non</td>
-                        </tr>
-                        <tr>
-                            <td>Adaptive-Sync</td>
-                            <td>Non</td>
-                        </tr>
-                        <tr>
-                            <td>AMD FreeSync</td>
-                            <td>Non</td>
-                        </tr>
-                        <tr>
-                            <td>Flicker-Free</td>
-                            <td>Oui</td>
-                        </tr>
-                        <tr>
-                            <td>Anti-lumière bleue</td>
-                            <td>Oui</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <h3>Ecran</h3>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Type d'écran</td>
-                            <td>LED</td>
-                        </tr>
-                        <tr>
-                            <td>Ecran large</td>
-                            <td>Oui</td>
-                        </tr>
-                        <tr>
-                            <td>Ecran incurvé</td>
-                            <td>Non</td>
-                        </tr>
-                        <tr>
-                            <td>Borderless</td>
-                            <td>Oui</td>
-                        </tr>
-                        <tr>
-                            <td>Compatible 3D</td>
-                            <td>Non</td>
-                        </tr>
-                        <tr>
-                            <td>Ecran tactile</td>
-                            <td>Non</td>
-                        </tr>
-                        <tr>
-                            <td>Fréquence verticale mini</td>
-                            <td>60 Hz</td>
-                        </tr>
-                        <tr>
-                            <td>Type d'activités</td>
-                            <td>Bureautique</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <h3>Ergonomie</h3>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Pivot</td>
-                            <td>Non</td>
-                        </tr>
-                        <tr>
-                            <td>Pied réglable en hauteur</td>
-                            <td>Non</td>
-                        </tr>
-                        <tr>
-                            <td>Pied amovible</td>
-                            <td>Oui</td>
-                        </tr>
-                        <tr>
-                            <td>Fixation VESA</td>
-                            <td>N/A</td>
-                        </tr>
-                        <tr>
-                            <td>Angle inclinaison vers l'arrière (haut)</td>
-                            <td>21.5 Degré(s)</td>
-                        </tr>
-                        <tr>
-                            <td>Angle inclinaison vers l'avant (bas)</td>
-                            <td>3.5 Deg</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <h3>Connectique</h3>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Entrées vidéo</td>
-                            <td>1 X HDMI Femelle, 1 X VGA (D-sub 15 Femelle)</td>
-                        </tr>
-                        <tr>
-                            <td>Entrée audio</td>
-                            <td>Aucun(e)</td>
-                        </tr>
-                        <tr>
-                            <td>Sorties audio</td>
-                            <td>1 X Line OUT (Jack 3.5mm Femelle)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <h3>Multimédia</h3>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>H.P. Intégrés</td>
-                            <td>Non</td>
-                        </tr>
-                        <tr>
-                            <td>Webcam</td>
-                            <td>Non</td>
-                        </tr>
-                        <tr>
-                            <td>Tuner TV</td>
-                            <td>Non</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <h3>Caractéristiques physiques</h3>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Couleur</td>
-                            <td>Noir</td>
-                        </tr>
-                        <tr>
-                            <td>Largeur</td>
-                            <td>540.1 mm</td>
-                        </tr>
-                        <tr>
-                            <td>Hauteur</td>
-                            <td>417.4 mm</td>
-                        </tr>
-                        <tr>
-                            <td>Profondeur</td>
-                            <td>186.8 mm</td>
-                        </tr>
-                        <tr>
-                            <td>Poids</td>
-                            <td>2.48 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Pack multi-écrans</td>
-                            <td>Non</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <h3>Alimentation</h3>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Consommation</td>
-                            <td>25 W</td>
-                        </tr>
-                        <tr>
-                            <td>Consommation en veille</td>
-                            <td>0.5 W</td>
-                        </tr>
-                        <tr>
-                            <td>Alimentation interne</td>
-                            <td>Non</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </article>
-</main>
+                <div>
+                    <h3>Ergonomie</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Pivot</td>
+                                <td>Non</td>
+                            </tr>
+                            <tr>
+                                <td>Pied réglable en hauteur</td>
+                                <td>Non</td>
+                            </tr>
+                            <tr>
+                                <td>Pied amovible</td>
+                                <td>Oui</td>
+                            </tr>
+                            <tr>
+                                <td>Fixation VESA</td>
+                                <td>N/A</td>
+                            </tr>
+                            <tr>
+                                <td>Angle inclinaison vers l'arrière (haut)</td>
+                                <td>21.5 Degré(s)</td>
+                            </tr>
+                            <tr>
+                                <td>Angle inclinaison vers l'avant (bas)</td>
+                                <td>3.5 Deg</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3>Connectique</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Entrées vidéo</td>
+                                <td>1 X HDMI Femelle, 1 X VGA (D-sub 15 Femelle)</td>
+                            </tr>
+                            <tr>
+                                <td>Entrée audio</td>
+                                <td>Aucun(e)</td>
+                            </tr>
+                            <tr>
+                                <td>Sorties audio</td>
+                                <td>1 X Line OUT (Jack 3.5mm Femelle)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3>Multimédia</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>H.P. Intégrés</td>
+                                <td>Non</td>
+                            </tr>
+                            <tr>
+                                <td>Webcam</td>
+                                <td>Non</td>
+                            </tr>
+                            <tr>
+                                <td>Tuner TV</td>
+                                <td>Non</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3>Caractéristiques physiques</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Couleur</td>
+                                <td>Noir</td>
+                            </tr>
+                            <tr>
+                                <td>Largeur</td>
+                                <td>540.1 mm</td>
+                            </tr>
+                            <tr>
+                                <td>Hauteur</td>
+                                <td>417.4 mm</td>
+                            </tr>
+                            <tr>
+                                <td>Profondeur</td>
+                                <td>186.8 mm</td>
+                            </tr>
+                            <tr>
+                                <td>Poids</td>
+                                <td>2.48 kg</td>
+                            </tr>
+                            <tr>
+                                <td>Pack multi-écrans</td>
+                                <td>Non</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3>Alimentation</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Consommation</td>
+                                <td>25 W</td>
+                            </tr>
+                            <tr>
+                                <td>Consommation en veille</td>
+                                <td>0.5 W</td>
+                            </tr>
+                            <tr>
+                                <td>Alimentation interne</td>
+                                <td>Non</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </article>
+    </main>

@@ -6,10 +6,10 @@ class FrontController
     protected $navRayon;
     protected $navProduit;
     
-public function __construct()
-{
+    public function __construct()
+    {
         $this->  setNav();
-}
+    }
     public function setNav()
     {
         $boutique = new BoutiqueModel();
@@ -19,11 +19,12 @@ public function __construct()
         $this-> navBoutique = $boutique -> displayNavBoutique();
         $this-> navRayon = $rayon -> displayNavRayon();
         $this-> navProduit = $produit-> getTableau();
-      //  var_dump()
     }
+    
+    
     public function createCookie()
     {
 
-            setcookie('test',true,time()+365*24*3600);
+        setcookie('test',true,time()+365*24*3600);
     }
 }

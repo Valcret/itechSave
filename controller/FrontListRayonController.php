@@ -11,6 +11,7 @@ class FrontListRayonController extends FrontController
         //gestion des templates
         $template = "frontlistrayon.phtml";
         include "views/dashboard.phtml";
+    }
     
     header('location:rayon');
     }

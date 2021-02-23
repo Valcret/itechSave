@@ -44,7 +44,7 @@ class AdminController {
           //charger à nouveau le formulaire et afficher le message d'error
           //gestion des templates
     $template = "admin.phtml";
-    include "views/layout.phtml";
+    include "views/layoutback.phtml";
              
       }
 

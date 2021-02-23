@@ -14,17 +14,21 @@ function addCookie() {
     document.getElementById("cookiebar").style.transform = "translateY(100px)";
 }
 
+
+//carrousel
 function bigImage() {
     let bigImage = document.getElementById('bigImage')
     // met la 1ère fois en grand dans div Big Image
-    bigImage.innerHTML = photo1
+    let content = document.querySelector('.photos');
+    bigImage.innerHTML = `<img src="${content.src}">`;
 
     // choisit la grande image selon le click
     let photos = document.querySelectorAll('.photos')
     for (let i = 0; i < photos.length; i++) {
-        photos[i].addEventListener('click', function() {
+        photos[i].addEventListener('mouseover', function() {
             console.log(photos[i])
-            bigImage.innerHTML = photos[i]
+            bigImage.innerHTML = `<img src="${this.src}">`
+
         })
     }
 }
@@ -38,6 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
     buttonCookie.addEventListener('click', addCookie);
     // pour faire la transition avec la cookie barre
     document.getElementById("cookiebar").style.transform = "translateY(-100px)";
+
+
     // pour faire le carroussel
     photo1 = document.querySelector('.photos');
     // pour faire la big Image par defaut

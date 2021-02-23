@@ -1,0 +1,106 @@
+<!-- class modal -->
+		
+		<div id="modal-backdrop" class="modal-backdrop"></div>
+		<section id="user-modal" class="modal modal--sm user-modal" role="dialog">
+			<a href="#" class="close">&times;</a>
+			<h2>Mon compte</h2>
+			<form action="product-1.html">
+				<fieldset>
+					<legend>J'ai déjà un compte</legend>
+					<div class="field">
+						<label>Mon adresse email</label>
+						<div class="value"><input name="login" type="text"></div>
+					</div>
+					<div class="field">
+						<label>Mon mot de passe</label>
+						<div class="value"><input name="password" type="password"></div>
+					</div>
+					<div class="field">
+						<div class="first"><button class="button">Se connecter</button></div>
+						<div class="value"><a href="#">J'ai oublié mon mot de passe</a></div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Je n'ai pas de compte</legend>
+					<div class="field"><button class="button">Créer un compte</button></div>
+				</fieldset>
+			</form>
+		</section>
+		<section id="cart-modal" class="modal modal--sm cart-modal" role="dialog">
+			<a href="#" class="close">&times;</a>
+			<h2>Mon panier</h2>
+			<div id="cart-empty">
+				<p>Aucun article</p>
+			</div>
+			<div id="cart-table" class="hidden">
+				<ul class="unstyled"></ul>
+				<a href="#" class="button">valider la commande</a>
+			</div>
+		</section>
+		<section id="gallery-modal" class="modal modal--lg" role="dialog">
+			<a href="#" class="close">&times;</a>
+			<h2>AOC 24B1XHS</h2>
+			<div id="gallery-2" class="gallery gallery--left gallery--modal">
+				<div><img src="images/product-1/slide-1-lg.jpg" alt="AOC 24B1XHS : Vue du produit 1"></div>
+				<ul>
+					<li>
+						<a href="images/product-1/slide-1-lg.jpg"><img src="images/product-1/slide-1-md.jpg" alt="AOC 24B1XHS : Vignette du produit 1"></a>
+					</li>
+					<li>
+						<a href="images/product-1/slide-2-lg.jpg"><img src="images/product-1/slide-2-md.jpg" alt="AOC 24B1XHS : Vignette du produit 2"></a>
+					</li>
+					<li>
+						<a href="images/product-1/slide-3-lg.jpg"><img src="images/product-1/slide-3-md.jpg" alt="AOC 24B1XHS : Vignette du produit 3"></a>
+					</li>
+					<li>
+						<a href="images/product-1/slide-4-lg.jpg"><img src="images/product-1/slide-4-md.jpg" alt="AOC 24B1XHS : Vignette du produit 4"></a>
+					</li>
+					<li>
+						<a href="images/product-1/slide-5-lg.jpg"><img src="images/product-1/slide-5-md.jpg" alt="AOC 24B1XHS : Vignette du produit 5"></a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		
+		
+		
+		
+		
+		
+		<script>
+			var modal0 = new Modal('#user-modal', '#modal-backdrop');
+			modal0.addTrigger('#user-button', 'open');
+			modal0.addTrigger('#user-modal .close', 'close');
+
+			var modal1 = new Modal('#cart-modal', '#modal-backdrop');
+			modal1.addTrigger('#cart-button', 'open');
+			modal1.addTrigger('#cart-modal .close', 'close');
+
+			var modal2 = new Modal('#gallery-modal', '#modal-backdrop');
+			modal2.addTrigger('#gallery-1 > div img', 'open');
+			modal2.addTrigger('#gallery-modal .close', 'close');
+
+			var gallery1 = new Gallery('#gallery-1 > div img', '#gallery-1 > ul a');
+			var gallery2 = new Gallery('#gallery-2 > div img', '#gallery-2 > ul a');
+
+			var cart = new Cart('#cart-button', '#cart-table', '#cart-empty');
+			cart.addProduct('product-1', 'AOC 24B1XHS Black', 109.94);
+			cart.addTrigger('#add-cart', 'addToCart', 'product-1');
+			cart.addTrigger('#add-wish', 'addToWish', 'product-1');
+			cart.restore();
+			cart.update();
+
+			var body = document.querySelector('body');
+			document.getElementById('theme-dark').addEventListener('click', function(event) {
+				body.classList.add('theme-dark');
+			}, false);
+			document.getElementById('theme-none').addEventListener('click', function(event) {
+				body.classList.remove('theme-dark');
+			}, false);
+			document.getElementById('line-large').addEventListener('click', function(event) {
+				body.classList.add('line-large');
+			}, false);
+			document.getElementById('line-normal').addEventListener('click', function(event) {
+				body.classList.remove('line-large');
+			}, false);
+		</script>
