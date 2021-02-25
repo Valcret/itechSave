@@ -10,6 +10,7 @@ class FrontController
     {
         $this->  setNav();
     }
+    
     public function setNav()
     {
         $boutique = new BoutiqueModel();

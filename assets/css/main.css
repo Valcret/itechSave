@@ -305,16 +305,20 @@ h2 {
 
 /******************** ************************/
 
-.cookieShow {
+#coockiebar {
     position: fixed;
-    width: 100%;
     bottom: -100px;
+    z-index: 2000;
+}
+
+.cookieShow {
+    width: 100%;
     height: 100px;
     background-color: rgba(17, 25, 32, 0.8);
     color: #ffffff;
     /*transform: translateY(-100px);*/
     transition: transform 0.75s linear;
-    z-index: 2000;
+
 }
 
 

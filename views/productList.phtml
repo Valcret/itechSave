@@ -18,11 +18,11 @@
     <tbody class="table-striped">
     <?php foreach($productLists as $produit):?>
     <tr scope="row">
-        <td class="col-3" scope="col"><?=$produit['marque']?> <?=$produit['nom']?></td>
-       <td class="col-2" scope="col"><?=$produit['rayon']?></td>
-      <td class="col-1" scope="col"><?=$produit['boutique']?></td>
-      <td class="col-1 statutNom" scope="col"><?= $this -> colorStatut($produit['statut'])?></td>
-      <td class="col-2"><?= $this -> setButton($produit['statut'],$produit['id']); ?></td> 
+        <td class="col-3" scope="col"><?=htmlspecialchars($produit['marque'])?> <?=htmlspecialchars($produit['nom'])?></td>
+       <td class="col-2" scope="col"><?=htmlspecialchars($produit['rayon'])?></td>
+      <td class="col-1" scope="col"><?=htmlspecialchars($produit['boutique'])?></td>
+      <td class="col-1 statutNom" scope="col"><?= $this -> colorStatut(htmlspecialchars($produit['statut']))?></td>
+      <td class="col-2"><?= $this -> setButton(htmlspecialchars($produit['statut']),htmlspecialchars($produit['id'])); ?></td> 
       <td class="col-1"><button class="btn btn-outline-secondary btn-sm btn-block"><i class="fas fa-pen"></i> Modifier</button></td>
       <td class="col-2"><button class="btn btn-outline-info btn-sm btn-block"><i class="fas fa-tags"></i> Caractéristiques</button></td>
     </tr>

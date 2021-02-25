@@ -4,14 +4,14 @@
             <ul>
                 <!-- à finir pour que ce soit interactif -->
                 <li><a href="#"><i class="icon-shop"></i>Accueil</a></li>
-                <li><a href="#"><i class="icon-data"></i><?= $displayed['boutique'] ?></a></li>
-                <li><a href="#"><?= $displayed['rayon'] ?></a></li>
-                <li><?= $displayed['nom'] ?></li>
+                <li><a href="#"><i class="icon-data"></i><?= htmlspecialchars($displayed['boutique']) ?></a></li>
+                <li><a href="#"><?=htmlspecialchars( $displayed['rayon'])?></a></li>
+                <li><?=htmlspecialchars( $displayed['nom'])?></li>
             </ul>
         </nav>
         <article id="product" class="product">
             <header>
-                <h1><?= $displayed['marque'] ?> <?= $displayed['nom'] ?></h1>
+                <h1><?=htmlspecialchars( $displayed['marque'])?> <?=htmlspecialchars( $displayed['nom'])?></h1>
                 <p id="toc" class="toc">
                     <a href="#presentation">Présentation</a>
                     <a href="#description">Descriptif</a>
@@ -36,47 +36,53 @@
                         <ul>
                             <?php foreach($photos as $photo):?>
                             <li>
-                                <a href="<?=$photo['src']?>">
-                                    <img class="photos" src="<?=$photo['src']?>" alt="<?=$photo['alt']?> : Vignette du produit">
+                                <a href="<?=htmlspecialchars($photo['src'])?>">
+                                    <img class="photos" src="<?=htmlspecialchars($photo['src'])?>" alt="<?=htmlspecialchars($photo['alt'])?> : Vignette du produit">
                                 </a>
                             </li>
-        <?php endforeach; ?>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                     
                     <div>
                         <div class="brand">
                             <p><img src="images/brand-1/logo-sm.png" alt="Logo marque" class="hide-md">
-                            Marque: <div class="brand"><?= $displayed['marque'] ?></p>
+                            Marque: <div class="brand"><?=htmlspecialchars($displayed['marque'])?></p>
                         </div>
                         <div class="cart-card">
                             <div class="cart-card_price">
-                                <div><?= $displayed['prix'] ?>€</div>
-                                <small>dont éco-participation <?= $displayed['ecoparticipation'] ?>€</small>
+                                <div><?=htmlspecialchars( $displayed['prix'])?>€</div>
+                                <small>dont éco-participation <?=htmlspecialchars($displayed['ecoparticipation'])?>€</small>
                             </div>
                             <div class="cart-card_actions">
-                                <button id="add-cart" class="button">Ajouter au panier</button>
+                                <!-- transmettre l'id du produit -->
+                                
+                                <form action="basket" method="POST">
+                                    <input type="hidden" name="product_id" value="<?= $displayed['id_produit'] ?>">
+                                    <button id="add-cart" class="button">Ajouter au panier</button> 
+                                </form>
+                                
                                 <button id="add-wish" class="button button--alt">Ajouter à ma liste d'envie</button>
                             </div>
                             <div class="cart-card_guarantee">
                                 Garantie: 2 années vendeur
                             </div>
                         </div>
-                        <p><?=$displayed['description_principale']?></p>
+                        <p><?=htmlspecialchars($displayed['description_principale'])?></p>
                     </div>
                 </div>
             </section>
             <section id="description" class="description clearfix">
                 <h2>Descriptif</h2>
-                <h3><?=$displayed['titre_1']?></h3>
-                <img class="float-right" src="<?=$displayed['image_1']?>" alt="taille de l'écran" class="main-right">
-                <p><?=$displayed['description_1']?></p>
-                <h3><?=$displayed['titre_2']?></h3>
-                <img class="float-left" src="<?=$displayed['image_2']?>" alt="zoom écran" class="main-left">
-                <p><?=$displayed['description_2']?></h3>
-                <h3><?=$displayed['titre_3']?></h3>
-                <img class="float-left" src="<?=$displayed['image_3']?>" alt="zoom écran" class="main-left">
-                <p><?=$displayed['description_3']?></h3>
+                <h3><?=htmlspecialchars($displayed['titre_1'])?></h3>
+                <img class="float-right" src="<?=htmlspecialchars($displayed['image_1'])?>" alt="taille de l'écran" class="main-right">
+                <p><?=htmlspecialchars($displayed['description_1'])?></p>
+                <h3><?=htmlspecialchars($displayed['titre_2'])?></h3>
+                <img class="float-left" src="<?=htmlspecialchars($displayed['image_2'])?>" alt="zoom écran" class="main-left">
+                <p><?=htmlspecialchars($displayed['description_2'])?></h3>
+                <h3><?=htmlspecialchars($displayed['titre_3'])?></h3>
+                <img class="float-left" src="<?=htmlspecialchars($displayed['image_3'])?>" alt="zoom écran" class="main-left">
+                <p><?=htmlspecialchars($displayed['description_3'])?></h3>
             </section>
             <section id="specifications" class="specifications">
                 <h2>Caractéristiques techniques</h2>

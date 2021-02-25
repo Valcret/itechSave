@@ -46,12 +46,18 @@ Comment allez vous faire ? Si une session atteste de la connexion de l'admin alo
 Le tout doit être fait en MVC:
 - le lien mène vers index.php?page=deconnexion
 - le controller AdminController va avoir alors une nouvelle méthode
-
-
+- 
 **6. Mettre ne place la réécriture d'urls**
 
 **7. On clique sur gestion des produits** ça affiche le tableau avec la liste des articles
 
+**DANS LE DETAIL mais pas trop :-)**
+Un nouveau controller (parceque une nouvelle page)
+Un nouveau template
+Un nouveau model (produits)
+
+Le controller demande la liste des produits au model puis il les transmets au template
+Des conditions sur le statut des produits va vous permettre de gérer les couleurs (rouge vert...)
 
 **8. Vérifier la sécurité de toutes les pages du backoffice**
 Les pages ne doivent pas être accessibles si la session de connexion n'existe pas
@@ -67,6 +73,7 @@ Pour la redirection, faire une recherche sur header()
 - pour l'étape 9, 2 controllers : 1 pour l'affichage de la liste et 1 pour la gestion du form
 - pour les models, je vous laisse réfléchir (1 model = 1 table)
 
+
 **10. Gestion des rayons**
 10.1 : on clique sur le lien, la liste des rayons apparaît (sous forme de tableau avec comme actions : supprimer / modifier)
 10.2 : sur cette même page, un bouton "Ajouter un rayon" ouvre un formulaire d'ajout de rayon avec un champ texte et une liste déroulante (qui va chercher la liste des boutiques)
@@ -74,4 +81,137 @@ Pour la redirection, faire une recherche sur header()
 
 **DANS LE DETAIL: là vous devriez faire sans explications...**
 lien - index - controller - model..... tout doit être clair à présent :-)
+
+**11. Ajouter un produit**
+- rajouter le bouton au dessus du tableau des produits
+- ce bouton mène vers le long, très long formulaire d'ajout...
+- la particularité ici est l'upload des images:
+    - trouver le type de l'input à mettre pour l'upload des fichiers
+    - votre balise form doit prendre un nouvel attribut pour permettre l'upload, à vous de le trouver
+    - le controller qui se lance suite à la soumission du form a beaucoup de travail:
+        - insérer en bdd le nouveau produit (attention pour les images, il faut mettre le src)
+        - uploader toutes les images (https://www.php.net/manual/fr/function.move-uploaded-file.php)
+**ATTENTION**
+Lorsque la boutique est choisie, la liste des rayons doit se mettre en jour (à faire en JS).
+        
+**12. Supprimer une boutique **
+- un clic sur un bouton supprimer à côté d'une boutique va ouvrir un popup pour demander à l'utilisateur s'il est sûr.
+- si il répond non, le popup se ferme
+- si il répond oui, la suppression est effective
+ATTENTION ICI JS
+
+**13. Supprimer un rayon **
+Idem que pour boutique
+
+**14. Modification d'une boutique**
+- Au clic sur modifier à côté d'une boutique, le formulaire d'ajout s'affiche mais prérempli
+- A la validation du formulaire , un update de la boutique est fait.
+
+**15. Modification d'un rayon**
+-Idem
+
+
+**FRONT**
+
+**La page article **
+L'url article-4 affichera la page de l'article n°4 côté front.
+Il va falloir ensuite générer cette page. Le controller doit aller chercher toutes les informations présentes sur cette pag ET celles communes à toutes les pages (menu)
+
+- un controller mère qui gère les infos présentes sur toutes les pages
+- un autre qui en hérite et va chercher les infos de cette page
+
+Côté model, ajouter les requêtes nécessaires mais n'hésitez pas à réutiliser des requêtes déjà faites pour le back, on a l droit !!!!
+
+Le carrousel photo est à gérer en JS
+
+**BACK - Ajax**
+
+Sur la page "Gestion des produits", mettre en service les boutons de changement de statut avec une requête Ajax ou Fetch.
+
+Lorsqu'on clique sur un bouton "Retirer" ou "Mettre en boutique" ou "Remettre", cela va lancer une fonction Js qui envoie une requête à PHP en lui indiquant l'id du produit qu'il doit modifier et le nouveau statut qu'il doit lui donner.
+
+PHP reçoit les infos et écrit la requête SQL qui va permettre d'UPDATE le statut du produit.
+
+En JS, la fonction de callback OU le .then (appelée lorsque PHP a terminé son travail) doit quant à elle, mettre à jour l'affichage du tableau ( la colonne statut ET le bouton doivent changer).
+
+**FRONT**
+
+Créer une bannière sur la partie front pour les cookies.
+Elle contient juste un bouton "Ok", ce bouton est géré grâce à JS.
+Quand on clique sur ce bouton, js envoie une requête AJAX qui appelle un controller PHP, qui enregistre un cookie pour garder en mémoire l'approbation de l'utilisateur pendant 1 an.
+Du coup, en JS, la bannière disparait et si on recharge la page, elle n'apparait que si le COOKIE n'existe pas.
+
+**ON TESTE TOUT ça**
+
+Connectez vous au back, insérer un produit un vrai avec des photos , description et tout et tout.
+
+Aller sur le front et vérifier que la page de cet article s'est générée et fonctionne bien.
+
+
+**BRAVO, vous avez fini !**
+
+A vous maintenant de rajouter toutes les fonctionnalités souhaitées au choix, selon vos envies:
+- Une page d'accueil qui affiche tous les articles de la BDD (juste nom , image et prix par exemple)
+- La modification d'articles côté back, 
+- La suppression côtée back
+- La gestion du panier
+- La commande
+- ......
+- 
+Bon amusement :-)
+
+---------------------------
+
+-> Page de produit ( integré et lié à la BD )
+-> Menu : liste des rayons + liens
+
+-------------------
+
+Systeme de panier
+
+- Creer la classe BasketModel
+
+
+<?php
+
+class BasketModel
+{
+    public $basket;
+    
+    public function __construct()
+    {
+        $basket = [];
+    }
+    
+    public function addProduct( $product , $quantity )
+    {
+        // stocker le produit et la quantité dans la session
+        
+        // + 1 coca
+        // + 2 coca => 3 cocas
+    }
+    
+    public function removeProduct( $product )
+    {
+        
+    }
+    
+    public function getTotalPrice()
+    {
+        
+    }
+}
+
+?>
+
+- Page produit : ajouter le bouton de commande
+- Creer une nouvelle page qui va inserer le produit dans le panier
+
+- Sur le menu : Afficher le nombre de produit dans le panier
+- Page produit : Afficher une modal au click sur le panier
+
+AJAX 
+
+- Creer une nouvelle page PHP ( AJAX ) : Renvoi le panier en JSON ( M C )
+- Afficher le contenu du panier dans la modal en se servant de la page AJAX
 

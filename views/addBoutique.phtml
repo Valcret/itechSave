@@ -2,7 +2,7 @@
     <fieldset>
         <legend><?= (!isset($_GET['id']))?'Nouvelle boutique':'Modifier une boutique' ?></legend>
         
-    <input type="text" name="boutique" value="<?= (!isset($_GET['id']))?'':$boutique['nom'] ?>"/>
+    <input type="text" name="boutique" value="<?= (!isset($_GET['id']))?'':htmlspecialchars($boutique['nom']) ?>"/>
     <button type="submit"><?= (!isset($_GET['id']))?'Ajouter':'Modifier' ?></button>
       </fieldset>
 </form>

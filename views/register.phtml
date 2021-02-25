@@ -1,0 +1,47 @@
+<form  action="signUp" method="POST" id="registerForm">
+    <label for="email"> Email </label> 
+    <input type="text" id="email" name="email">
+    
+    <label for="password"> Password </label>
+    <input type="password" id="password" name="password">
+    
+    <label for="lastname"> Nom </label>
+    <input type="text" id="lastname" name="lastname">
+    
+    <label for="firstname"> Prenom </label>
+    <input type="text" id="firstname" name="firstname">
+    <label for="address"> Adresse </label>
+    <textarea id="address" name="address"></textarea>
+    <label for="city"> Ville </label>
+    <input type="text" id="city" name="city">
+    <label for="zipcode"> Code postal </label>
+    <input type="text" id="zipcode" name="zipcode">
+    <label for="country"> Pays </label>
+    <input type="text" id="country" name="country">
+    
+    
+    
+    <button> Inscription </button>
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function()
+    {
+        let form = document.getElementById('registerForm');
+        form.addEventListener('submit', function( event )
+        {
+            let email = document.getElementById('email');
+            if( email.value.length == 0 )
+            {
+                alert('email manquant');
+                // annuler le comportement d'un evenement par default
+                event.preventDefault();
+            }
+        })
+        
+       
+       
+        
+    });
+    
+</script>

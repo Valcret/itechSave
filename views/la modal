@@ -26,6 +26,9 @@
 				</fieldset>
 			</form>
 		</section>
+		
+		
+		/// PANIER ///
 		<section id="cart-modal" class="modal modal--sm cart-modal" role="dialog">
 			<a href="#" class="close">&times;</a>
 			<h2>Mon panier</h2>
@@ -37,6 +40,8 @@
 				<a href="#" class="button">valider la commande</a>
 			</div>
 		</section>
+		
+		
 		<section id="gallery-modal" class="modal modal--lg" role="dialog">
 			<a href="#" class="close">&times;</a>
 			<h2>AOC 24B1XHS</h2>
@@ -68,13 +73,19 @@
 		
 		
 		<script>
+		
+		// user
 			var modal0 = new Modal('#user-modal', '#modal-backdrop');
 			modal0.addTrigger('#user-button', 'open');
 			modal0.addTrigger('#user-modal .close', 'close');
-
+			
+		// panier
 			var modal1 = new Modal('#cart-modal', '#modal-backdrop');
 			modal1.addTrigger('#cart-button', 'open');
 			modal1.addTrigger('#cart-modal .close', 'close');
+			
+			
+// carroussel
 
 			var modal2 = new Modal('#gallery-modal', '#modal-backdrop');
 			modal2.addTrigger('#gallery-1 > div img', 'open');
@@ -82,21 +93,33 @@
 
 			var gallery1 = new Gallery('#gallery-1 > div img', '#gallery-1 > ul a');
 			var gallery2 = new Gallery('#gallery-2 > div img', '#gallery-2 > ul a');
+//fin carroussel
 
-			var cart = new Cart('#cart-button', '#cart-table', '#cart-empty');
+
+
+// pour le panier JS
+			let cart = new Cart('#cart-button', '#cart-table', '#cart-empty');
 			cart.addProduct('product-1', 'AOC 24B1XHS Black', 109.94);
 			cart.addTrigger('#add-cart', 'addToCart', 'product-1');
 			cart.addTrigger('#add-wish', 'addToWish', 'product-1');
 			cart.restore();
 			cart.update();
 
-			var body = document.querySelector('body');
+
+
+// pour les themes //
+			let body = document.querySelector('body');
 			document.getElementById('theme-dark').addEventListener('click', function(event) {
 				body.classList.add('theme-dark');
 			}, false);
 			document.getElementById('theme-none').addEventListener('click', function(event) {
 				body.classList.remove('theme-dark');
 			}, false);
+			
+			
+	// fin des themes		
+		
+		// lignes	
 			document.getElementById('line-large').addEventListener('click', function(event) {
 				body.classList.add('line-large');
 			}, false);

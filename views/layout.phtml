@@ -5,21 +5,32 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<!-- à enlever ? -->
 		<meta name="description" content="Un écran 23,8&quot; Full HD et sans bords; c'est sûrement votre futur moniteur pour la maison ou le bureau. AOC vous propose le 24B1XHS, un produit élégant au look doté d'une dalle VA avec un temps de réponse rapide de 7 ms en résolution 1920 x 1080 pixels. Cet écran WLED très fonctionnel offre un contenu avec un fréquence de 60 Hz, idéal pour tous les usages du quotidien.">
-		<title>AOC 24B1XHS - HiTech.NET</title>
+		
+		<title>HiTech.NET</title>
+		
 		<link rel="icon" type="image/svg+xml" href="images/logo.svg">
 		<link rel="stylesheet" href="css/normalize.css">
+		 <!-- bootstrap -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<!-- css pour le back à enlever ?
    		 <link rel="stylesheet" href="../assets/css/login.css" type="text/css" />
     	<link rel="stylesheet" href="../assets/css/admin.css" type="text/css" />
+    	-->
+    	<!-- front : css front-->
 		<link rel="stylesheet" href="assets/css/front.css" type="text/css" />
+		<!-- front : css pour la police-->
 		<link rel="stylesheet" href="assets/css/font.css" type="text/css" />
+		<!-- front : css pour les icones-->
 		<link rel="stylesheet" href="assets/css/icons.css" type="text/css" />
+		<!-- A enlever ?
 		<meta property="og:description" content="Un écran 23,8&quot; Full HD et sans bords; c'est sûrement votre futur moniteur pour la maison ou le bureau. AOC vous propose le 24B1XHS, un produit élégant au look doté d'une dalle VA avec un temps de réponse rapide de 7 ms en résolution 1920 x 1080 pixels. Cet écran WLED très fonctionnel offre un contenu avec un fréquence de 60 Hz, idéal pour tous les usages du quotidien."
 		/>
 		<meta property="og:title" content="AOC 24B1XHS - HiTech.NET" />
 		<meta property="og:image" content="https://www.hitech.net.com/images/product-1/slide-1-md.jpg" />
 		<meta property="og:url" content="https://www.hitech.net.com/product-1.html" />
+		-->
 	</head>
 
 	<body id="top" class="">
@@ -67,14 +78,20 @@
 				</div>
 				<div id="toolbar" class="toolbar" role="toolbar">
 					<a href="#" id="user-button"><i class="icon-user"></i>Mon compte</a>
-					<a href="#" id="cart-button" class="cart-button"><i class="icon-cart"></i>Mon panier</a>
+					<a href="#" id="cart-button" class="cart-button"><i class="icon-cart"></i>Mon panier 
+						<span>
+							<?php if( isset($_SESSION['basket'])) 
+								echo count($_SESSION['basket']); 
+							?>
+						</span>
+					</a>
 				</div>
 			</div>
 			<?php include 'views/navbar.phtml'?>
 		</header>
 		
 		 <main>
-        <?php include $template; ?>
+               <?php include $template; ?>
    	     </main>
 		
 		<footer class="footer">
@@ -129,6 +146,19 @@
 			</div>
 					 
 		</footer>
+		
+		<section id="cart-modal" class="modal modal--sm cart-modal" role="dialog">
+			<a href="#" class="close">&times;</a>
+			<h2>Mon panier</h2>
+			<div id="cart-empty">
+				<p>Aucun article</p>
+			</div>
+			<div id="cart-table" class="hidden">
+				<ul class="unstyled"></ul>
+				<a href="#" class="button">valider la commande</a>
+			</div>
+		</section>
+		
 		<?php if(!isset($_COOKIE['test'])):?>
 		 <div id="cookiebar" class="cookieShow"><p>Des cookies ?</p><button type="button" id="cookieOk">J'accepte !</button></div>
 		    <?php endif; ?>
@@ -142,5 +172,4 @@
 	<!--<script src="assets/js/canvas.js"></script> -->
 
 	</body>
-
 </html>

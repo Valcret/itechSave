@@ -24,7 +24,7 @@
             <select name='boutique'>
                 <option>Choisir une boutique ...</option>
                 <?php foreach($boutiques as $boutique): ?>
-                    <option value="<?= $boutique['id_boutique'] ?>"><?= $boutique['nom'] ?></option>
+                    <option value="<?= htmlspecialchars($boutique['id_boutique']) ?>"><?= htmlspecialchars($boutique['nom']) ?></option>
                 <?php endforeach; ?>
             </select>
         </p>
@@ -34,7 +34,7 @@
              <select name='rayon'>
                  <option>Choisir un rayon...</option>
                 <?php foreach($rayons as $rayon): ?>
-                    <option value="<?= $rayon['id_rayon'] ?>"><?= $rayon['nom'] ?></option>
+                    <option value="<?= htmlspecialchars($rayon['id_rayon']) ?>"><?= htmlspecialchars($rayon['nom']) ?></option>
                 <?php endforeach; ?>
             </select>
         </p>

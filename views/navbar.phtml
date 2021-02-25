@@ -2,19 +2,19 @@
 				<?php foreach($this->navBoutique as $boutique):?>
 				<ul class="d-flex flex-column cols cols--4">
 					<li>
-						<a href="#"><i class="icon-display"></i><?= $boutique["boutique"]?></a>
+						<a href="#"><i class="icon-display"></i><?= htmlspecialchars($boutique["boutique"])?></a>
 						<div>
 							<ul>
 								<?php foreach($this->navRayon as $rayon ):?>
 								<?php if($boutique['idBoutique']==$rayon['idBoutique']):?>
 								<li>
-								<span class="flavia"><?= $rayon["rayon"]?></span>
+								<span class="flavia"><?= htmlspecialchars($rayon["rayon"])?></span>
 										<ul>
 											<?php foreach($this->navProduit as $product):?>
 												<?php if($rayon['idRayon']==$product['idRayon']):?>
 												<li>
 													<a href="index.php?page=article&id=<?=$product['id']?>">
-														<?= $product["nom"]?>
+														<?= htmlspecialchars($product["nom"])?>
 													</a>
 												</li>
 												<?php endif; ?>

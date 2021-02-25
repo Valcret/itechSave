@@ -17,10 +17,10 @@
   <tbody class="table-striped">
     <?php foreach($rayons as $rayon):?>
     <tr scope="row">
-      <td scope="col"><?= $rayon["nom"]?></td>
-      <td class="col-1"><button class="btn btn-outline-secondary btn-sm btn-block"><a href="updateRayon-<?=$rayon["id_rayon"]?>">Modifier</a></button></td>
-      <td class="col-1"><button class="btn btn-outline-danger btn-sm btn-block"><a href="deleteRayon-<?=$rayon["id_rayon"]?>" class="suppr">Supprimer</a></button></td>
-      <td class="col-1"><button class="btn btn-outline-info btn-sm btn-block"><a href="#" data-id="<?=$rayon["id_rayon"]?>" class="supprBis">Suppr. Bis</a></button></td>  
+      <td scope="col"><?= htmlspecialchars($rayon["nom"])?></td>
+      <td class="col-1"><button class="btn btn-outline-secondary btn-sm btn-block"><a href="updateRayon-<?= htmlspecialchars($rayon["id_rayon"])?>">Modifier</a></button></td>
+      <td class="col-1"><button class="btn btn-outline-danger btn-sm btn-block"><a href="deleteRayon-<?= htmlspecialchars($rayon["id_rayon"])?>" class="suppr">Supprimer</a></button></td>
+      <td class="col-1"><button class="btn btn-outline-info btn-sm btn-block"><a href="#" data-id="<?= htmlspecialchars($rayon["id_rayon"])?>" class="supprBis">Suppr. Bis</a></button></td>  
         
     </tr>
     <?php endforeach; ?>

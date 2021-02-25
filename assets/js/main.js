@@ -32,22 +32,63 @@ function bigImage() {
         })
     }
 }
+
+function showCart()
+{
+    let modal = document.getElementById('cart-modal');
+    modal.classList.add('visible');
+    
+    fetch('index.php?page=ajaxBasket')
+    .then(function(response)
+    {
+        // appelle json.parse sur le resultat
+        return response.json();        
+    })
+    .then(function( basket )
+    {
+        if(basket.length != 0 )
+        {
+            let emptyMessage = document.getElementById("cart-empty");
+            emptyMessage.innerHTML = '';
+        }
+        
+        
+        let table = document.getElementById("cart-table");
+        table.classList.remove('hidden');    
+    
+        let ul = document.querySelector('#cart-table ul');
+        
+        for( let i = 0 ; i < basket.length; i++)
+        {
+            console.log('lol');
+            let total = basket[i].product.prix * basket[i].quantity;
+            ul.innerHTML += `<li> ${basket[i].product.nom} - 
+                ${basket[i].quantity} - ${total} </li>`;
+        }
+    })
+}
+
 /*********CODE***********
  ***************************/
 
 document.addEventListener('DOMContentLoaded', function() {
 
     // add event listener pour clic bouton cookie barre
-    buttonCookie = document.getElementById('cookieOk');
+    /*buttonCookie = document.getElementById('cookieOk');
     buttonCookie.addEventListener('click', addCookie);
     // pour faire la transition avec la cookie barre
-    document.getElementById("cookiebar").style.transform = "translateY(-100px)";
+    document.getElementById("cookiebar").style.transform = "translateY(-100px)";*/
 
-
+    /*
     // pour faire le carroussel
     photo1 = document.querySelector('.photos');
     // pour faire la big Image par defaut
-    bigImage()
+    bigImage()*/
+    
+    // Modal
+    
+    let cart = document.getElementById("cart-button");
+    cart.addEventListener('click', showCart );
 
 
 })

@@ -25,7 +25,7 @@ else
 {
     switch($_GET['page'])
     {
-///////////////////////////////////////FRONT
+        // ========= FRONT ===================
 
         /*
         case 'accueil' :
@@ -43,6 +43,26 @@ else
         $controller = new FrontController();
         $controller -> createCookie();
         break;
+        
+        case 'basket':
+            $controller = new BasketController();
+            $controller -> addToBasket();
+            break;
+            
+        case 'order':
+            $controller = new OrderController();
+            $controller ->order();
+            break;
+            
+        case 'register':
+            $controller = new CustomerController();
+            $controller->display();
+            break;
+            
+        case 'signUp':
+            $controller = new CustomerController();
+            $controller->signUp();
+            break;
         
 ////////////////////////////////////////BACK
         case 'admin' :
@@ -144,5 +164,13 @@ else
         $controller = new AdminController();
         $controller -> logout();
         break;
+        
+        //==== AJAX =================
+        
+        case 'ajaxBasket':
+            $controller = new BasketController();
+            $controller ->getBasketJSON();
+            break;
+        
     }
 }
